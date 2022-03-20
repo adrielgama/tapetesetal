@@ -2,7 +2,6 @@ import * as React from "react";
 // import { IMaskInput } from "react-imask";
 import emailjs from "@emailjs/browser";
 import { Box, TextField, Button, FormControl, Grid } from "@mui/material";
-import axios from "axios";
 
 const style = {
   position: "absolute" as "absolute",
@@ -17,7 +16,6 @@ const style = {
   p: 4,
 };
 
-const token = "QWldgAKOOwrYfij_7MTGJ";
 const userID = "jhefrXBSVihCMXbGk";
 const serviceID = "service_nbptw95";
 const templateID = "template_n2wxk9d";
@@ -54,43 +52,23 @@ const ContactSimulation = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values.altura, values.comprimento, values.message]);
 
-  // React.useEffect(() => {
-  //   var data = {
-  //     accessToken: token,
-  //     user_id: userID,
-  //     service_id: serviceID,
-  //     template_id: templateID,
-  //     template_params: JSON.stringify(values),
-  //   };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  //   window.sessionStorage.setItem(
-  //     "@data",
-  //     JSON.stringify(data.template_params)
-  //   );
-  // }, [values]);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    var data = {
-      accessToken: token,
-      user_id: userID, //ESSE USER_ID TA CORRETO, SERÁ Q TEM Q PASSAR NO HEADER?
-      service_id: serviceID,
-      template_id: templateID,
-      template_params: {
-        name: values.name,
-        email: values.email,
-        tel: values.tel,
-        altura: JSON.stringify(values.altura),
-        comprimento: JSON.stringify(values.comprimento),
-        message: values.message,
-        valor_final: JSON.stringify(values.valor_final),
-      },
+    const template_params = {
+      name: values.name,
+      email: values.email,
+      tel: values.tel,
+      altura: values.altura,
+      comprimento: values.comprimento,
+      message: values.message,
+      valor_final: values.valor_final,
     };
 
-    axios.post("https://api.emailjs.com/api/v1.0/email/send", {
-      header: { "Content-Type": "application/json" },
-      data,
-    }).then((response) => console.log(response)).catch((err) => console.log(err));
+    emailjs.send(serviceID, templateID, template_params, userID).then(
+      (response) => console.log("SUCCESS", response),
+      (error) => console.log("FAILED", error)
+    );
   };
 
   React.useEffect(() => {
@@ -104,11 +82,7 @@ const ContactSimulation = () => {
   return (
     <React.Fragment>
       <Box sx={style} component="form">
-        <FormControl
-          fullWidth
-          variant="outlined"
-          style={{ marginTop: 10 }}
-        >
+        <FormControl fullWidth variant="outlined" style={{ marginTop: 10 }}>
           <TextField
             type="text"
             name="name"
@@ -242,7 +216,11 @@ const ContactSimulation = () => {
             }
           />
 
-          <Button type="submit" style={{ marginTop: 10 }} onClick={(e) => handleSubmit(e)}>
+          <Button
+            type="submit"
+            style={{ marginTop: 10 }}
+            onClick={(e) => handleSubmit(e)}
+          >
             Simular valor
           </Button>
         </FormControl>

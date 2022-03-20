@@ -6,9 +6,9 @@ interface ColorsTheme {
   grey: string;
   orange: string;
   brown: string;
-  greyHover: string,
-  orangeHover: string,
-  brownHover: string,
+  greyHover: string;
+  orangeHover: string;
+  brownHover: string;
 }
 
 interface ThemeCommons {
@@ -45,7 +45,7 @@ interface ThemeCommons {
     default: string;
     rounded: string;
     circled: string;
-  }
+  };
 }
 
 export const Color: ColorsTheme = {
@@ -56,12 +56,10 @@ export const Color: ColorsTheme = {
   grey: "#38444A",
   orange: "#F7941D",
   brown: "#2D1706",
-  
+
   greyHover: "#132027",
   orangeHover: "#2D1706",
   brownHover: "#F7941D",
-
-
 };
 
 export const Theme: ThemeCommons = {
@@ -95,8 +93,18 @@ export const Theme: ThemeCommons = {
     filterSmooth: "drop-shadow(0px 0.5px 1.5px rgba(0, 0, 0, 0.1))",
   },
   radius: {
-    default: '2px',
-    rounded: '5px',
-    circled: '30px',
+    default: "2px",
+    rounded: "5px",
+    circled: "30px",
   },
 };
+
+export interface SendMailer {
+  name: string;
+  email: string;
+  tel: string;
+  altura: number;
+  comprimento: number;
+  message: string;
+  valor_final: number;
+}
