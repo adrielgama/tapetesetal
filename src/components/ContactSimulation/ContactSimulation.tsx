@@ -69,10 +69,11 @@ const ContactSimulation = () => {
   //   );
   // }, [values]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
     var data = {
       accessToken: token,
-      user_id: userID,
+      user_id: userID, //ESSE USER_ID TA CORRETO, SERÁ Q TEM Q PASSAR NO HEADER?
       service_id: serviceID,
       template_id: templateID,
       template_params: {
@@ -89,7 +90,7 @@ const ContactSimulation = () => {
     axios.post("https://api.emailjs.com/api/v1.0/email/send", {
       header: { "Content-Type": "application/json" },
       data,
-    });
+    }).then((response) => console.log(response)).catch((err) => console.log(err));
   };
 
   React.useEffect(() => {
@@ -106,7 +107,6 @@ const ContactSimulation = () => {
         <FormControl
           fullWidth
           variant="outlined"
-          onSubmit={handleSubmit}
           style={{ marginTop: 10 }}
         >
           <TextField
@@ -242,7 +242,7 @@ const ContactSimulation = () => {
             }
           />
 
-          <Button type="submit" style={{ marginTop: 10 }}>
+          <Button type="submit" style={{ marginTop: 10 }} onClick={(e) => handleSubmit(e)}>
             Simular valor
           </Button>
         </FormControl>
