@@ -1,7 +1,7 @@
 import * as React from "react";
-// import { IMaskInput } from "react-imask";
 import emailjs from "@emailjs/browser";
 import { Box, TextField, Button, FormControl, Grid } from "@mui/material";
+import { IWizard } from "./index";
 
 const style = {
   position: "absolute" as "absolute",
@@ -20,7 +20,7 @@ const userID = "jhefrXBSVihCMXbGk";
 const serviceID = "service_nbptw95";
 const templateID = "template_n2wxk9d";
 
-const ContactSimulation = () => {
+const ContactSimulation = (Props: IWizard) => {
   const [values, setValues] = React.useState({
     name: "",
     email: "",
@@ -28,7 +28,7 @@ const ContactSimulation = () => {
     altura: 0.0,
     comprimento: 0.0,
     message: "",
-    valor_final: 0.0,
+    valor_final: "0.0",
   });
   const [status, setStatus] = React.useState("");
 
@@ -36,7 +36,9 @@ const ContactSimulation = () => {
 
   React.useEffect(() => {
     const final = values.altura * values.comprimento * 530.0;
-    const floatFinal = parseFloat(final.toFixed(1));
+    // const floatFinal = parseFloat(final.toFixed(2));
+    const fiString = JSON.stringify(final);
+    const floatFinal = parseFloat(fiString).toFixed(2);
 
     setValues({
       name: values.name,
@@ -69,6 +71,8 @@ const ContactSimulation = () => {
       (response) => console.log("SUCCESS", response),
       (error) => console.log("FAILED", error)
     );
+
+    Props.setWizard(2);
   };
 
   React.useEffect(() => {

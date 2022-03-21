@@ -10,11 +10,13 @@ import {
 } from "./styles";
 import Logo from "../../assets/images/logo.png";
 import ContactSimulation from "../ContactSimulation/ContactSimulation";
+import SimulationResult from "../ContactSimulation/SimulationResult";
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [actualPage, setActualPage] = React.useState(1);
 
   return (
     <Header>
@@ -38,7 +40,18 @@ const Navbar = () => {
         aria-labelledby="modal-simulation"
         aria-describedby="modal-simulation"
       >
-        <ContactSimulation />
+        {/* <ContactSimulation setWizard={setActualPage} wizardValue={actualPage} /> */}
+        {actualPage === 1 ? (
+          <ContactSimulation
+            setWizard={setActualPage}
+            wizardValue={actualPage}
+          />
+        ) : (
+          <SimulationResult
+            setWizard={setActualPage}
+            wizardValue={actualPage}
+          />
+        )}
       </Modal>
     </Header>
   );
