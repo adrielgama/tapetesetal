@@ -66,7 +66,7 @@ const SimulationResult = (Props: IWizard) => {
         </Box>
         {/* https://api.whatsapp.com/send?phone=5575991181035&text=Thanks%20for%20the%20contact */}
         <a
-          href={`https://api.whatsapp.com/send?phone=5575991181035&text=Ol%C3%A1%2C%20vim%20do%20seu%20site.%20O%20valor%20do%20meu%20or%C3%A7amento%20deu%3A%20R%24%20{printValue}`}
+          href={`https://api.whatsapp.com/send?phone=5575991181035&text=Ol%C3%A1%2C%20vim%20do%20seu%20site.%20O%20valor%20do%20meu%20or%C3%A7amento%20deu%3A%20R%24%20${printValue}`}
           target="_blank"
           rel="noreferrer"
           style={{ textDecoration: "none" }}
@@ -75,6 +75,7 @@ const SimulationResult = (Props: IWizard) => {
             variant="contained"
             startIcon={<WhatsApp />}
             style={{ backgroundColor: "#0f9d44" }}
+            onClick={() => Props.setWizard(1)}
           >
             Entrar em contato
           </Button>
