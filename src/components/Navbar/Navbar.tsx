@@ -2,35 +2,39 @@
 import React from "react";
 import { Modal } from "@mui/material";
 import {
+  isMenuProps,
   Header,
   LogoHeader,
   BtnSimulation,
   NavLink,
   ContainerNavLink,
+  ContainerNavLinkList,
 } from "./styles";
 import Logo from "../../assets/images/logo.png";
 import ContactSimulation from "../ContactSimulation/ContactSimulation";
 import SimulationResult from "../ContactSimulation/SimulationResult";
 
-const Navbar = () => {
+const Navbar: React.FC<isMenuProps> = ({ openMenu }) => {
   const [open, setOpen] = React.useState(false);
+  const [menuHamburgerOpen, setMenuHamburgerOpen] = React.useState(false);
+  const [actualPage, setActualPage] = React.useState(1);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [actualPage, setActualPage] = React.useState(1);
 
   return (
     <Header>
       <a href="#">
         <LogoHeader src={Logo} alt="Logo" />
       </a>
-      <ContainerNavLink>
-        <ContainerNavLink>
+      <ContainerNavLink openMenu={menuHamburgerOpen}>
+        <ContainerNavLinkList>
           <NavLink href="#about">SOBRE NÓS</NavLink>
           <NavLink href="#clients">CLIENTES</NavLink>
           <NavLink href="#product">PRODUTO</NavLink>
           <NavLink href="#team">EQUIPE</NavLink>
           <NavLink href="#contact">CONTATO</NavLink>
-        </ContainerNavLink>
+        </ContainerNavLinkList>
         <BtnSimulation onClick={handleOpen}>Simule aqui</BtnSimulation>
       </ContainerNavLink>
       <Modal
