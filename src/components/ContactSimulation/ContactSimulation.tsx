@@ -1,7 +1,9 @@
+/* eslint-disable no-useless-computed-key */
 import * as React from "react";
 import emailjs from "@emailjs/browser";
-import { Box, TextField, Button, FormControl, Grid } from "@mui/material";
+import { Box, TextField, FormControl, Grid, Typography } from "@mui/material";
 import { IWizard } from "./index";
+import { MyBtn } from "./styles";
 
 const style = {
   position: "absolute" as "absolute",
@@ -14,6 +16,9 @@ const style = {
   borderRadius: 2,
   boxShadow: 24,
   p: 4,
+  "@media (max-width: 780px)": {
+    width: 300,
+  },
 };
 
 const userID = "jhefrXBSVihCMXbGk";
@@ -36,7 +41,6 @@ const ContactSimulation = (Props: IWizard) => {
 
   React.useEffect(() => {
     const final = values.altura * values.comprimento * 530.0;
-    // const floatFinal = parseFloat(final.toFixed(2));
     const fiString = JSON.stringify(final);
     const floatFinal = parseFloat(fiString).toFixed(2);
 
@@ -86,13 +90,22 @@ const ContactSimulation = (Props: IWizard) => {
   return (
     <React.Fragment>
       <Box sx={style} component="form">
-        <FormControl fullWidth variant="outlined" style={{ marginTop: 10 }}>
+        <FormControl
+          fullWidth
+          variant="outlined"
+          style={{
+            marginTop: 10,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <TextField
             type="text"
             name="name"
             label="Nome"
             required
-            style={{ marginTop: 10 }}
+            style={{ marginTop: 10, width: "100%" }}
             onChange={(e) =>
               setValues({
                 name: e.target.value,
@@ -110,7 +123,7 @@ const ContactSimulation = (Props: IWizard) => {
             name="email"
             label="E-mail"
             required
-            style={{ marginTop: 10 }}
+            style={{ marginTop: 10, width: "100%" }}
             onChange={(e) =>
               setValues({
                 name: values.name,
@@ -128,7 +141,7 @@ const ContactSimulation = (Props: IWizard) => {
             name="tel"
             label="Telefone"
             required
-            style={{ marginTop: 10 }}
+            style={{ marginTop: 10, width: "100%" }}
             onChange={(e) =>
               setValues({
                 name: values.name,
@@ -175,7 +188,6 @@ const ContactSimulation = (Props: IWizard) => {
               name="comprimento"
               label="Comprimento"
               required
-              // style={{ margin: "0 10px" }}
               style={{ marginLeft: 10, width: "100%" }}
               defaultValue={"0.00"}
               inputProps={{
@@ -194,11 +206,6 @@ const ContactSimulation = (Props: IWizard) => {
                 })
               }
             />
-            {/* <Grid>
-              <Typography variant="h4" component="h2">
-                R$ {values.valor_final && `${parseFloat(values.valor_final).toFixed(2)}`}
-              </Typography>
-            </Grid> */}
           </Grid>
           <TextField
             type="text"
@@ -220,14 +227,19 @@ const ContactSimulation = (Props: IWizard) => {
             }
           />
 
-          <Button
-            type="submit"
-            style={{ marginTop: 10 }}
-            onClick={(e) => handleSubmit(e)}
-          >
-            Simular valor
-          </Button>
+          <MyBtn type="submit" onClick={(e) => handleSubmit(e)}>
+            Simular valor *
+          </MyBtn>
         </FormControl>
+        <Typography
+          variant="caption"
+          fontSize={10}
+          color={"#a0a0a0"}
+        >
+          * Ao simular, os dados acima preenchidos serão enviados por e-mail
+          para que os nossos colaboradores entrem em contato trazendo uma melhor
+          experiência ao finalizar o orçamento.
+        </Typography>
       </Box>
     </React.Fragment>
   );

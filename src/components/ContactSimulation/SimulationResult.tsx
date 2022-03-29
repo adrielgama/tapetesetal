@@ -15,6 +15,9 @@ const style = {
   borderRadius: 2,
   boxShadow: 24,
   p: 4,
+  "@media (max-width: 780px)": {
+    width: 300,
+  },
 };
 
 const styleCarpet = {
@@ -30,6 +33,9 @@ const styleCarpet = {
   p: 4,
   margin: 7,
   color: Color.white,
+  "@media (max-width: 780px)": {
+    width: 250,
+  },
 };
 
 const SimulationResult = (Props: IWizard) => {

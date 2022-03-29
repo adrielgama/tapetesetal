@@ -69,11 +69,11 @@ export const Theme: ThemeCommons = {
       Rubik: "'Rubik', sans-serif",
     },
     heading: {
-      title: "8.125rem",
+      title: "6rem",
       sectionTitle: "5rem",
       sectionParagraph: "1.1rem",
       buttons: "1.1rem",
-      paragraph: "0.8rem",
+      paragraph: "0.9rem",
     },
     weight: {
       light: 300,

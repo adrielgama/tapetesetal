@@ -1,11 +1,17 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
+import Header from "./pages/Header";
+import About from "./pages/About";
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
-    </div>
+      <Header />
+      <div id="#about">
+        <About />
+      </div>
+    </>
   );
 }
 

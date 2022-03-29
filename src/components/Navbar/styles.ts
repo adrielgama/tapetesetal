@@ -5,7 +5,7 @@ export interface isMenuProps {
   openMenu?: boolean;
 }
 
-export const Header = styled.div`
+export const NavbarHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -21,6 +21,8 @@ export const Header = styled.div`
   font-size: ${Theme.typography.heading.paragraph};
 
   filter: ${Theme.dropShadow.filter};
+
+  z-index: 999;
 `;
 
 export const LogoHeader = styled.img`
@@ -28,7 +30,19 @@ export const LogoHeader = styled.img`
   cursor: pointer;
 
   @media (max-width: 768px) {
+    /* margin-right: 110px; */
     max-width: 300px;
+  }
+`;
+
+export const MenuHamburger = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: inline;
+    cursor: pointer;
+    margin-right: 20px;
+    font-size: 35px;
+    color: ${Color.orange};
   }
 `;
 
