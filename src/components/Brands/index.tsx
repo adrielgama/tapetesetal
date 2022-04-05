@@ -1,6 +1,8 @@
 import React from "react";
+import Slider from "react-slick";
 
 import { BrandPage } from "./styles";
+import "./slick-stl.css";
 
 import BB from "../../assets/images/bb.png";
 import Incardio from "../../assets/images/incardio.png";
@@ -57,16 +59,70 @@ const Brand = () => {
     },
   ];
 
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    cssEase: "linear",
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <BrandPage>
-      {loadImages.map((data) => {
-        return (
-          <div>
-            <img src={data.image} alt={data.text} />
-          </div>
-        );
-      })}
+      <Slider {...settings}>
+        {loadImages.map((data) => {
+          return (
+            <div>
+              <img
+                src={data.image}
+                alt={data.text}
+                // style={{ maxHeight: 121 }}
+              />
+            </div>
+          );
+        })}
+      </Slider>
     </BrandPage>
+    // <BrandPage>
+    //   {loadImages.map((data) => {
+    //     return (
+    //       <div>
+    //         <img src={data.image} alt={data.text} />
+    //       </div>
+    //     );
+    //   })}
+    // </BrandPage>
   );
 };
 

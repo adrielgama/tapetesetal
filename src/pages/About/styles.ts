@@ -25,11 +25,16 @@ export const AboutPage = styled.div`
     text-align: center;
     width: 50vw;
     font-size: ${Theme.typography.heading.paragraph};
-    /* padding: 0 100px; */
   }
 
-  /* @media (max-width: 768px) {
-    font-size: 4rem;
-    padding: 50px 20px;
-  } */
+  @media (max-width: 768px) {
+    > h1 {
+      font-size: ${Theme.typography.heading.sectionTitle};
+    }
+
+    > p {
+      width: 70vw;
+      padding: 0 0 50px 0;
+    }
+  }
 `;
