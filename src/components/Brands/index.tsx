@@ -103,7 +103,7 @@ const Brand = () => {
       <Slider {...settings}>
         {loadImages.map((data) => {
           return (
-            <div>
+            <div className="div__container">
               <img
                 src={data.image}
                 alt={data.text}
@@ -114,15 +114,6 @@ const Brand = () => {
         })}
       </Slider>
     </BrandPage>
-    // <BrandPage>
-    //   {loadImages.map((data) => {
-    //     return (
-    //       <div>
-    //         <img src={data.image} alt={data.text} />
-    //       </div>
-    //     );
-    //   })}
-    // </BrandPage>
   );
 };
 

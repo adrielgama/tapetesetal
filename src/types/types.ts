@@ -4,6 +4,7 @@ interface ColorsTheme {
   black: string;
   white: string;
   grey: string;
+  grey2: string;
   orange: string;
   brown: string;
   greyHover: string;
@@ -31,6 +32,7 @@ interface ThemeCommons {
       sectionParagraph: string;
       buttons: string;
       paragraph: string;
+      footer: string;
     };
     link: {
       decoration: string;
@@ -54,6 +56,7 @@ export const Color: ColorsTheme = {
   black: "#000000",
   white: "#ffffff",
   grey: "#38444A",
+  grey2: "#3b3835",
   orange: "#F7941D",
   brown: "#2D1706",
 
@@ -74,6 +77,7 @@ export const Theme: ThemeCommons = {
       sectionParagraph: "1.1rem",
       buttons: "1.1rem",
       paragraph: "0.9rem",
+      footer: "0.8rem",
     },
     weight: {
       light: 300,

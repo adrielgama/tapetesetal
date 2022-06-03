@@ -48,7 +48,7 @@ const Navbar: React.FC<isMenuProps> = ({ openMenu }) => {
         <ContainerNavLinkList>
           <NavLink href="#about">SOBRE NÓS</NavLink>
           <NavLink href="#clients">CLIENTES</NavLink>
-          <NavLink href="#product">PRODUTO</NavLink>
+          <NavLink href="#products">PRODUTO</NavLink>
           <NavLink href="#team">EQUIPE</NavLink>
           <NavLink href="#contact">CONTATO</NavLink>
         </ContainerNavLinkList>

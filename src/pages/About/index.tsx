@@ -6,7 +6,7 @@ const About = () => {
     <AboutPage>
       <h1>Sobre nós</h1>
       <p>
-        A Tapetes & Tal é uma empresa constituída no em 1992, onde se
+        A Tapetes &amp; Tal é uma empresa constituída no em 1992, onde se
         especializou na fabricação de tapetes de personalizados, por ter uma
         proposta diferenciada, uma tecnologia moderna e um grande estoque a
         empresa alcançou grande credibilidade em seus produtos e serviços.
