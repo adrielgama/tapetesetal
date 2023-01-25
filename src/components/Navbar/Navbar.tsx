@@ -26,8 +26,6 @@ const Navbar: React.FC<isMenuProps> = ({ openMenu }) => {
   const handleClose = () => setOpen(false);
 
   const handleHamburger = () => setMenuHamburgerOpen(!menuHamburgerOpen);
-  // const handleOpenHamburger = () => setMenuHamburgerOpen(true);
-  // const handleCloseHamburger = () => setMenuHamburgerOpen(true);
 
   return (
     <NavbarHeader>
@@ -61,7 +59,6 @@ const Navbar: React.FC<isMenuProps> = ({ openMenu }) => {
         aria-labelledby="modal-simulation"
         aria-describedby="modal-simulation"
       >
-        {/* <ContactSimulation setWizard={setActualPage} wizardValue={actualPage} /> */}
         {actualPage === 1 ? (
           <ContactSimulation
             setWizard={setActualPage}

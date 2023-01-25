@@ -10,32 +10,32 @@ import Footer from "./pages/Footer";
 
 function App() {
   return (
-    <>
+    <div>
       <Navbar />
       <Fade bottom>
         <Header />
       </Fade>
-      <Fade bottom>
-        <div id="about">
+      <div id="about">
+        <Fade bottom>
           <About />
-        </div>
-      </Fade>
-      <Fade bottom>
-        <div id="clients">
+        </Fade>
+      </div>
+      <div id="clients">
+        <Fade bottom>
           <Brand />
-        </div>
-      </Fade>
-      <Fade bottom>
-        <div id="products">
+        </Fade>
+      </div>
+      <div id="products">
+        <Fade bottom>
           <Products />
-        </div>
-      </Fade>
-      <Fade bottom>
-        <div id="contact">
+        </Fade>
+      </div>
+      <div id="contact">
+        <Fade bottom>
           <Footer />
-        </div>
-      </Fade>
-    </>
+        </Fade>
+      </div>
+    </div>
   );
 }
 

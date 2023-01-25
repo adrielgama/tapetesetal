@@ -30,13 +30,13 @@ export const LogoHeader = styled.img`
   cursor: pointer;
 
   @media (max-width: 768px) {
-    /* margin-right: 110px; */
     max-width: 300px;
   }
 `;
 
 export const MenuHamburger = styled.div`
   display: none;
+  
   @media (max-width: 768px) {
     display: inline;
     cursor: pointer;

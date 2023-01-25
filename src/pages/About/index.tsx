@@ -3,7 +3,7 @@ import { AboutPage } from "./styles";
 
 const About = () => {
   return (
-    <AboutPage>
+    <AboutPage id="#about">
       <h1>Sobre nós</h1>
       <p>
         A Tapetes &amp; Tal é uma empresa constituída no em 1992, onde se
