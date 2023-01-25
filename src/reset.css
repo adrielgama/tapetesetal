@@ -5,4 +5,5 @@
   list-style: none;
   border: 0;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }

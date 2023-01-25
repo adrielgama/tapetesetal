@@ -57,13 +57,13 @@ export const ChevronIcon = styled.div`
   animation: mouse 2s ease-in-out infinite;
   @keyframes mouse {
     0% {
-      bottom: 50px;
+      bottom: 30px;
     }
     50% {
-      bottom: 10px;
+      bottom: 8px;
     }
     100% {
-      bottom: 50px;
+      bottom: 30px;
     }
   }
   :hover {

@@ -13,23 +13,23 @@ export const App = () => {
       <Navbar />
 
       <div id="#">
-        <Fade bottom>
+        <Fade left>
           <Header />
         </Fade>
       </div>
 
       <div id="about">
-        <Fade bottom>
+        <Fade right>
           <About />
         </Fade>
       </div>
       <div id="clients">
-        <Fade bottom>
+        <Fade left>
           <Brand />
         </Fade>
       </div>
       <div id="products">
-        <Fade bottom>
+        <Fade right>
           <Products />
         </Fade>
       </div>
