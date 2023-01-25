@@ -8,7 +8,6 @@ export const AboutPage = styled.div`
   flex-direction: column;
 
   width: 100%;
-  height: 70vh;
 
   background-color: ${Color.orange};
 
@@ -16,7 +15,7 @@ export const AboutPage = styled.div`
   color: ${Color.white};
 
   > h1 {
-    padding: 50px 0;
+    padding: 5vh 0;
     font-size: ${Theme.typography.heading.title};
     color: ${Color.dark_bg};
   }
@@ -25,6 +24,7 @@ export const AboutPage = styled.div`
     text-align: center;
     width: 50vw;
     font-size: ${Theme.typography.heading.paragraph};
+    padding-bottom: 5vh;
   }
 
   @media (max-width: 768px) {

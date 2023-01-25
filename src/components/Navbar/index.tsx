@@ -33,9 +33,9 @@ export const Navbar = () => {
         <S.StyledLink onClick={() => close()} href="#products">
           PRODUTO
         </S.StyledLink>
-        <S.StyledLink onClick={() => close()} href="#team">
+        {/* <S.StyledLink onClick={() => close()} href="#team">
           EQUIPE
-        </S.StyledLink>
+        </S.StyledLink> */}
         <S.StyledLink onClick={() => close()} href="#contact">
           CONTATO
         </S.StyledLink>
@@ -47,7 +47,7 @@ export const Navbar = () => {
           <S.NavLink href="#about">SOBRE NÓS</S.NavLink>
           <S.NavLink href="#clients">CLIENTES</S.NavLink>
           <S.NavLink href="#products">PRODUTO</S.NavLink>
-          <S.NavLink href="#team">EQUIPE</S.NavLink>
+          {/* <S.NavLink href="#team">EQUIPE</S.NavLink> */}
           <S.NavLink href="#contact">CONTATO</S.NavLink>
         </S.ContainerNavLinkList>
         <S.BtnSimulation onClick={handleOpen}>Simule aqui</S.BtnSimulation>

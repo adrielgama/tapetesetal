@@ -5,6 +5,7 @@ import Brand from "./components/Brands";
 import { Header } from "./pages/Header";
 import { About } from "./pages/About";
 import { Products } from "./pages/Products";
+import { Footer } from "./pages/Footer";
 
 export const App = () => {
   return (
@@ -32,11 +33,9 @@ export const App = () => {
           <Products />
         </Fade>
       </div>
-      {/* <div id="contact">
-        <Fade bottom>
-          <Footer />
-        </Fade>
-      </div> */}
+      <div id="contact">
+        <Footer />
+      </div>
     </>
   );
 };

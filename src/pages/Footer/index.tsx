@@ -1,7 +1,6 @@
-import React from "react";
 import { Copyright } from "./styles";
 
-const Footer = () => {
+export const Footer = () => {
   const refreshYear = new Date();
   const year = refreshYear.getFullYear();
 
@@ -14,5 +13,3 @@ const Footer = () => {
     </>
   );
 };
-
-export default Footer;
