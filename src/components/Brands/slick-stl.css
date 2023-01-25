@@ -1,0 +1,14 @@
+.div__container img {
+  margin: auto;
+  max-height: 121px;
+  max-width: fit-content;
+}
+
+.slick-slide > div {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  margin: auto;
+  height: 200px;
+  padding: 0px;
+}
