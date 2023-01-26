@@ -6,6 +6,14 @@ interface MenuProps {
   menuHamburgerOpen?: boolean;
 }
 
+export const NavContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+`;
+
 export const StyledMenu = styled.nav<MenuProps>`
   top: 0;
   left: 0;
@@ -17,7 +25,6 @@ export const StyledMenu = styled.nav<MenuProps>`
   flex-direction: column;
   display: ${({ open }) => (open ? "flex" : "none")};
   align-items: center;
-  
 
   background-color: ${Color.white};
 
@@ -59,7 +66,7 @@ export const NavbarHeader = styled.div`
 
   width: 100%;
   height: auto;
-  position: fixed;
+  //position: fixed;
   padding: 0 1rem;
 
   background-color: ${Color.light_bg};
@@ -68,7 +75,7 @@ export const NavbarHeader = styled.div`
 
   filter: ${Theme.dropShadow.filter};
 
-  z-index: 999;
+  //z-index: 999;
 `;
 
 export const LogoHeader = styled.img`
@@ -98,10 +105,11 @@ export const ContainerNavLinkList = styled.div`
   flex-direction: row;
 `;
 
-export const NavLink = styled.a`
+export const NavLink = styled.button`
   text-decoration: none;
   display: inline-block;
   position: relative;
+  all: unset;
 
   color: ${Color.grey};
 
