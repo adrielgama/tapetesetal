@@ -15,7 +15,7 @@ export const AboutPage = styled.div`
   color: ${Color.white};
 
   > h1 {
-    padding: 5vh 0;
+    padding: 12vh 0 5vh 0;
     font-size: ${Theme.typography.heading.title};
     color: ${Color.dark_bg};
   }

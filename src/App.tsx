@@ -6,6 +6,7 @@ import { Header } from "./pages/Header";
 import { About } from "./pages/About";
 import { Products } from "./pages/Products";
 import { Footer } from "./pages/Footer";
+import { Contact } from "./pages/Contact";
 
 export const App = () => {
   return (
@@ -31,6 +32,11 @@ export const App = () => {
       <div id="products">
         <Fade right>
           <Products />
+        </Fade>
+      </div>
+      <div id="contact">
+        <Fade left>
+          <Contact />
         </Fade>
       </div>
       <div id="contact">

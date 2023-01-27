@@ -109,6 +109,7 @@ const Brand = () => {
 
   return (
     <BrandPage>
+      <h1>Nossos clientes</h1>
       <Slider {...settings}>{sliders()}</Slider>
     </BrandPage>
   );
