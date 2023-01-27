@@ -36,6 +36,7 @@ export const ProductsPage = styled.div`
   }
 
   @media (max-width: 768px) {
+
     > h1 {
       font-size: ${Theme.typography.heading.sectionTitle};
     }
@@ -44,5 +45,12 @@ export const ProductsPage = styled.div`
       width: 70vw;
       padding: 0 0 50px 0;
     }
+
+    > div {
+      img {
+          width: auto;
+          height: 20vh;
+      }
+  }
   }
 `;
