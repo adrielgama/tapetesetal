@@ -18,6 +18,7 @@ export const AboutPage = styled.div`
     padding: 12vh 0 5vh 0;
     font-size: ${Theme.typography.heading.title};
     color: ${Color.dark_bg};
+    text-align: center;
   }
 
   > p {
