@@ -9,7 +9,6 @@ export const ContactPage = styled.div`
 
   width: 100%;
   padding-bottom: 3rem;
-  /* height: 80vh; */
 
   background-color: ${Color.white};
 
@@ -32,6 +31,10 @@ export const ContactPage = styled.div`
   @media (max-width: 768px) {
     > h1 {
       font-size: ${Theme.typography.heading.sectionTitle};
+    }
+
+    > div {
+      flex-direction: column;
     }
   }
 `;
@@ -70,5 +73,13 @@ export const ContactContent = styled.div`
     font-size: 35px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (max-width: 768px) {
+    :first-child{
+      margin-top: 0;
+    }
+
+    margin-top: 50px;
   }
 `;

@@ -19,7 +19,10 @@ export const Copyright = styled.div`
   word-spacing: 1px;
   color: ${Color.white};
 
-  /* @media (max-width: 768px) {
-   
-  } */
+  @media (max-width: 768px) {
+    height: 8vh;
+    > span {
+      padding: 0 30px;
+    }
+  }
 `;

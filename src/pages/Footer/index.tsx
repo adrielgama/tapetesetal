@@ -7,8 +7,8 @@ export const Footer = () => {
   return (
     <>
       <Copyright>
-        Copyright TAPETES E TAL - 28.709.828/0001-32 – {year}. Todos os direitos
-        reservados.
+        <span>Copyright Tapetes &#38; Tal - 28.709.828/0001-32 – {year}. Todos os direitos
+        reservados.</span>
       </Copyright>
     </>
   );
