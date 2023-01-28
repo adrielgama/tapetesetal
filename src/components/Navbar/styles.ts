@@ -4,31 +4,25 @@ import { Color, Theme } from "../../types/types";
 interface MenuProps {
   open?: boolean;
   menuHamburgerOpen?: boolean;
+  isLowResolution?: boolean;
 }
 
 export const StyledMenu = styled.nav<MenuProps>`
   top: 0;
   left: 0;
   height: 100vh;
-  width: 35vw;
-  position: fixed;
   padding: 10rem 0;
 
   flex-direction: column;
   display: ${({ open }) => (open ? "flex" : "none")};
   align-items: center;
-  
 
-  background-color: ${Color.white};
+  background-color: ${Color.light_bg};
 
   transition: transform 0.3s ease-in-out;
-  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")}; 
 
   z-index: 1;
-
-  @media (max-width: 600px) {
-    width: 100%;
-  }
 
   @media (min-width: 769px) {
     display: none;
@@ -40,7 +34,8 @@ export const StyledLink = styled.a`
   font-size: ${Theme.typography.heading.paragraph};
   text-align: center;
 
-  margin-bottom: 10px;
+  margin-bottom: 50px;
+  
 
   color: ${Color.orange};
   text-decoration: none;
@@ -51,7 +46,7 @@ export const StyledLink = styled.a`
   }
 `;
 
-export const NavbarHeader = styled.div`
+export const NavbarHeader = styled.div<MenuProps>`
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -68,6 +63,12 @@ export const NavbarHeader = styled.div`
 
   filter: ${Theme.dropShadow.filter};
 
+  @media (max-width: 768px) {
+    flex-direction: ${({ isLowResolution }) =>
+      isLowResolution ? "column" : "row"};
+    padding: 0;
+  }
+
   z-index: 999;
 `;
 
@@ -77,6 +78,7 @@ export const LogoHeader = styled.img`
 
   @media (max-width: 768px) {
     max-width: 300px;
+    margin-right: 60px;
   }
 `;
 

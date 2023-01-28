@@ -10,8 +10,8 @@ export const StyledHamburger = styled.button<StlProps>`
 
   @media (max-width: 768px) {
     position: fixed;
-    left: 3vw;
-    top: 3vw;
+    left: 85vw;
+    top: 30px;
     width: 2rem;
     height: 2rem;
     padding: 0;
@@ -25,7 +25,7 @@ export const StyledHamburger = styled.button<StlProps>`
     cursor: pointer;
     outline: none;
 
-    left: ${({ open }) => (open ? "29vw" : "3vw")};
+    /* left: ${({ open }) => (open ? "85vw" : "3vw")}; */
 
     div {
       position: relative;
@@ -53,8 +53,8 @@ export const StyledHamburger = styled.button<StlProps>`
     z-index: 1;
 
     @media (max-width: 600px) {
-      left: ${({ open }) => (open ? "initial" : "3vw")};
-      right: ${({ open }) => (open ? "10vw" : "initial")};
+      /* left: ${({ open }) => (open ? "initial" : "3vw")}; */
+      right: ${({ open }) => (open ? "2vw" : "3vw")};
     }
   }
 `;

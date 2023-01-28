@@ -166,7 +166,7 @@ const ContactSimulation = (Props: IWizard) => {
               label="Altura"
               required
               style={{ width: "100%" }}
-              defaultValue={"0.00"}
+              defaultValue={"0.00cm"}
               inputProps={{
                 maxLength: 13,
                 step: "0.01",
@@ -189,7 +189,7 @@ const ContactSimulation = (Props: IWizard) => {
               label="Comprimento"
               required
               style={{ marginLeft: 10, width: "100%" }}
-              defaultValue={"0.00"}
+              defaultValue={"0.00cm"}
               inputProps={{
                 maxLength: 13,
                 step: "0.01",
