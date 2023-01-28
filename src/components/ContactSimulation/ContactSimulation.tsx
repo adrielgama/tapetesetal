@@ -21,9 +21,9 @@ const style = {
   },
 };
 
-const userID = "jhefrXBSVihCMXbGk";
-const serviceID = "service_nbptw95";
-const templateID = "template_n2wxk9d";
+const userID = import.meta.env.VITE_USERID;
+const serviceID = import.meta.env.VITE_SERVICEID;
+const templateID = import.meta.env.VITE_TEMPLATEID;
 
 const ContactSimulation = (Props: IWizard) => {
   const [values, setValues] = React.useState({
@@ -37,10 +37,11 @@ const ContactSimulation = (Props: IWizard) => {
   });
   const [status, setStatus] = React.useState("");
 
-  emailjs.init("jhefrXBSVihCMXbGk");
+  emailjs.init(userID);
 
   React.useEffect(() => {
-    const final = values.altura * values.comprimento * 530.0;
+    //TODO CALCULO DO VALOR FINAL DO TAPETE
+    const final = values.altura * values.comprimento * 550.0;
     const fiString = JSON.stringify(final);
     const floatFinal = parseFloat(fiString).toFixed(2);
 
@@ -55,7 +56,6 @@ const ContactSimulation = (Props: IWizard) => {
     });
 
     window.sessionStorage.setItem("@calcFinal", JSON.stringify(floatFinal));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values.altura, values.comprimento, values.message]);
 
   const handleSubmit = async (e: React.FormEvent) => {

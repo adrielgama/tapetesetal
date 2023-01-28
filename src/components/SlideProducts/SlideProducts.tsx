@@ -1,4 +1,3 @@
-import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 
 import Rolos from "../../assets/images/products/carpet001.jpg";
@@ -9,12 +8,7 @@ import * as S from "./styles";
 const SlideProducts = () => {
   return (
     <>
-      <Container
-        style={{
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
+      <S.Container>
         <S.LeftContainer>
           <h1>Carpete Vulcanizado</h1>
           <h3>100% PVC</h3>
@@ -29,36 +23,23 @@ const SlideProducts = () => {
         <S.RightContainer>
           <img src={Rolos} alt="carpete vulcanizado" />
         </S.RightContainer>
-      </Container>
+      </S.Container>
       <Divider
         variant="middle"
-        component={Container}
+        component={S.Container}
         light
         style={{
           margin: "50px 0 25px",
           width: "50%",
         }}
       />
-      <Container
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          marginTop: 20,
-        }}
-      >
+      <S.Container>
         <S.RightContainer>
           <img src={Carpetes} alt="carpetes vulcanizado" />
         </S.RightContainer>
         <S.LeftContainer>
           <h1>Vantagens</h1>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-            //   alignItems: "center",
-              marginTop: 20,
-            }}
-          >
+          <S.ContentContainer>
             <div>
               <h5>✓ Antiderrapante</h5>
               <h5>✓ Anti-chamas</h5>
@@ -70,9 +51,9 @@ const SlideProducts = () => {
               <h5>✓ Fácil Manunteção</h5>
               <h5>✓ Garantia a defeitos de fábrica</h5>
             </div>
-          </div>
+          </S.ContentContainer>
         </S.LeftContainer>
-      </Container>
+      </S.Container>
     </>
   );
 };

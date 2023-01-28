@@ -6,6 +6,7 @@ import { Header } from "./pages/Header";
 import { About } from "./pages/About";
 import { Products } from "./pages/Products";
 import { Footer } from "./pages/Footer";
+import { Contact } from "./pages/Contact";
 
 export const App = () => {
   return (
@@ -13,24 +14,29 @@ export const App = () => {
       <Navbar />
 
       <div id="#">
-        <Fade bottom>
+        <Fade left>
           <Header />
         </Fade>
       </div>
 
       <div id="about">
-        <Fade bottom>
+        <Fade right>
           <About />
         </Fade>
       </div>
       <div id="clients">
-        <Fade bottom>
+        <Fade left>
           <Brand />
         </Fade>
       </div>
       <div id="products">
-        <Fade bottom>
+        <Fade right>
           <Products />
+        </Fade>
+      </div>
+      <div id="contact">
+        <Fade left>
+          <Contact />
         </Fade>
       </div>
       <div id="contact">

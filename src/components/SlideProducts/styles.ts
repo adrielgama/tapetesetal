@@ -1,9 +1,19 @@
+import { Container as ContainerMUI } from "@mui/material";
 import styled from "styled-components";
 import { Color, Theme } from "../../types/types";
 
 export interface isMenuProps {
   openMenu?: boolean;
 }
+
+export const Container = styled(ContainerMUI)`
+  display: flex !important;
+  flex-direction: row !important;
+
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+  }
+`;
 
 export const LeftContainer = styled.div`
   display: flex;
@@ -42,11 +52,13 @@ export const LeftContainer = styled.div`
     padding: 0 3rem;
   }
 
-  /* background-color: ${Color.light_bg}; */
-  /* font-family: ${Theme.typography.fontFamily.Roboto};
-  font-size: ${Theme.typography.heading.paragraph}; */
-
-  /* z-index: 999; */
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 10px;
+    p {
+      padding: 0;
+    }
+  }
 `;
 
 export const RightContainer = styled.div`
@@ -65,14 +77,28 @@ export const RightContainer = styled.div`
     border-radius: 5px;
     filter: drop-shadow(10px 10px 6px rgba(0, 0, 0, 0.1));
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+
+    &:first-child {
+      margin-top: 20px;
+    }
+
+    img {
+      filter: none;
+    }
+  }
 `;
 
-// export const LogoHeader = styled.img`
-//   max-width: 340px;
-//   cursor: pointer;
+export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
 
-//   @media (max-width: 768px) {
-//     /* margin-right: 110px; */
-//     max-width: 300px;
-//   }
-// `;
+  > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+`;
