@@ -18,12 +18,15 @@ export const Navbar = () => {
   const close = () => setMenuHamburgerOpen(false);
 
   return (
-    <S.NavbarHeader>
+    <S.NavbarHeader isLowResolution={menuHamburgerOpen}>
       <a href="#">
         <S.LogoHeader src={Logo} alt="Logo" />
       </a>
-      
+
       <S.StyledMenu open={menuHamburgerOpen} id="teste">
+        <S.StyledLink onClick={() => close()} href="#">
+          INÍCIO
+        </S.StyledLink>
         <S.StyledLink onClick={() => close()} href="#about">
           SOBRE NÓS
         </S.StyledLink>
@@ -33,15 +36,15 @@ export const Navbar = () => {
         <S.StyledLink onClick={() => close()} href="#products">
           PRODUTO
         </S.StyledLink>
-        {/* <S.StyledLink onClick={() => close()} href="#team">
-          EQUIPE
-        </S.StyledLink> */}
         <S.StyledLink onClick={() => close()} href="#contact">
           CONTATO
         </S.StyledLink>
         <S.BtnSimulation onClick={handleOpen}>Simule aqui</S.BtnSimulation>
       </S.StyledMenu>
-      <Hamburger menuHamburgerOpen={menuHamburgerOpen} setMenuHamburgerOpen={setMenuHamburgerOpen} />
+      <Hamburger
+        menuHamburgerOpen={menuHamburgerOpen}
+        setMenuHamburgerOpen={setMenuHamburgerOpen}
+      />
       <S.ContainerNavLink>
         <S.ContainerNavLinkList>
           <S.NavLink href="#about">SOBRE NÓS</S.NavLink>
