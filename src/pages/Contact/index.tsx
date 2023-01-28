@@ -24,7 +24,7 @@ export const Contact = () => {
           <BsPhoneVibrate />
           <h3>Telefone</h3>
           <a
-            href="https://api.whatsapp.com/send?phone=5575991181035&text=Ol%C3%A1%2C%20vim%20do%20seu%20site.%20O%20valor%20do%20meu%20or%C3%A7amento%20deu%3A%20R%24%20"
+            href="https://api.whatsapp.com/send?phone=5575991181035&text=Ol%C3%A1%2C%20vim%20do%20seu%20site."
             target="_blank"
           >
             <p>(75) 9 9118-1035</p>
