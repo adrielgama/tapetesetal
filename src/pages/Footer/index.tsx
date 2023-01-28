@@ -7,8 +7,20 @@ export const Footer = () => {
   return (
     <>
       <Copyright>
-        <span>Copyright Tapetes &#38; Tal - 28.709.828/0001-32 – {year}. Todos os direitos
-        reservados.</span>
+        <span>
+          Copyright NINA SOPHIA LOPES GAMA SANTOS 08239225535 -
+          43.627.021/0001-44 – {year}. Todos os direitos reservados.
+        </span>
+        <span>
+          Development by{" "}
+          <a
+            href="http://adrielgama.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            adrielgama.dev
+          </a>
+        </span>
       </Copyright>
     </>
   );

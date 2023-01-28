@@ -8,7 +8,7 @@ export const Copyright = styled.div`
   flex-direction: column;
 
   width: 100%;
-  height: 5vh;
+  height: 8vh;
 
   background-color: ${Color.orange};
 
@@ -19,8 +19,25 @@ export const Copyright = styled.div`
   word-spacing: 1px;
   color: ${Color.white};
 
+  & span:nth-child(2) {
+    padding-top: 10px;
+    > a {
+      text-decoration: none;
+      color: ${Color.brown};
+
+      :hover {
+        color: ${Color.grey};
+      }
+    }
+  }
+
   @media (max-width: 768px) {
-    height: 8vh;
+    height: 12vh;
+
+    & span:nth-child(2) {
+      padding-top: 5px;
+    }
+
     > span {
       padding: 0 30px;
     }
