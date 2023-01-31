@@ -5,21 +5,16 @@ export const About = () => {
     <AboutPage>
       <h1>Sobre nós</h1>
       <p>
-        A Tapetes &amp; Tal é uma empresa constituída no em 1992, onde se
-        especializou na fabricação de tapetes de personalizados, por ter uma
-        proposta diferenciada, uma tecnologia moderna e um grande estoque a
-        empresa alcançou grande credibilidade em seus produtos e serviços.
-        Analisando o crescimento da empresa e do mercado que foi conquistado e
-        por ter uma visão diferenciada de seus concorrentes a empresa vem a cada
-        ano crescendo e inovando para sempre estar a frente do mercado com
-        qualidade, profissionalismo, agilidade e sustentável.
+        A Tapetes &amp; Tal é uma empresa especializada na fabricação de tapetes
+        em vinil, emborrachados e vulcanizados que vem oferecendo produtos de
+        qualidade aos seus clientes desde 1992. Utilizando tecnologia moderna e
+        matéria-prima de primeira linha, a nossa empresa garante a durabilidade
+        em seus produtos e serviços. Além disso, primamos por manter uma relação
+        de profissionalismo, pontualidade e respeito com os nossos clientes.
         <br />
         <br />
-        Nossa meta é continuar sendo uma empresa especializada no segmento de
-        fabricação, personalizacao e comercialização de tapetes de vínil,
-        trabalhando para oferecer produtos de alta qualidade que entegram
-        soluções inovadoras, garantindo agilidade, profissionalismo e
-        sustentabilidade.
+        Nossa meta é continuar ofertando produtos que integrem soluções
+        inovadoras e sustentáveis de forma personalizada.
       </p>
     </AboutPage>
   );

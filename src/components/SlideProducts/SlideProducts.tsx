@@ -42,14 +42,14 @@ const SlideProducts = () => {
           <S.ContentContainer>
             <div>
               <h5>✓ Antiderrapante</h5>
-              <h5>✓ Anti-chamas</h5>
-              <h5>✓ Qualidade Superior</h5>
-              <h5>✓ Retém até 70% de sujeira</h5>
+              <h5>✓ Antichamas</h5>
+              <h5>✓ Produtos de primeira linha</h5>
+              <h5>✓ Retenção de até 70% da sujeira</h5>
             </div>
             <div>
-              <h5>✓ Resistente a sol e chuva</h5>
-              <h5>✓ Fácil Manunteção</h5>
-              <h5>✓ Garantia a defeitos de fábrica</h5>
+              <h5>✓ Resistência ao sol e à chuva</h5>
+              <h5>✓ Facilidade na manutenção</h5>
+              <h5>✓ Garantia contra defeitos de fábrica</h5>
             </div>
           </S.ContentContainer>
         </S.LeftContainer>
