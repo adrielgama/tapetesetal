@@ -41,7 +41,7 @@ const ContactSimulation = (Props: IWizard) => {
 
   React.useEffect(() => {
     //TODO CALCULO DO VALOR FINAL DO TAPETE
-    const final = values.altura * values.comprimento * 550.0;
+    const final = values.altura * values.comprimento * 600.0;
     const fiString = JSON.stringify(final);
     const floatFinal = parseFloat(fiString).toFixed(2);
 
