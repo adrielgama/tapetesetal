@@ -20,7 +20,6 @@ export const Navbar = () => {
               className="object-cover max-h-[80px] max-w-[240px] sm:h-[104px] sm:w-[340px] md:h-[104px] md:w-[340px] lg:h-[104px] lg:w-[340px]"
               src={Logo}
               alt="Tapetes e Tal - Logo"
-              loading="lazy"
             />
           </a>
         </div>
