@@ -21,16 +21,21 @@ export const Clients: React.FC<Props> = ({ id }) => {
       <h1 className="text-center title">Nossos clientes</h1>
 
       <Marquee gradient pauseOnClick>
-        <Image className="mx-4" src={BB} alt="Banco do Brasil" />
-        <Image className="mx-4" src={Incardio} alt="Incardio" />
-        <Image className="mx-4" src={Kairos} alt="Kairos" />
-        <Image className="mx-4" src={LMarquezzo} alt="LMarquezzo" />
-        <Image className="mx-4" src={Mendel} alt="Mendel" />
-        <Image className="mx-4" src={Sicoob} alt="Sicoob" />
-        <Image className="mx-4" src={SmartFit} alt="SmartFit" />
-        <Image className="mx-4" src={Subway} alt="Subway" />
-        <Image className="mx-4" src={Tabajara} alt="Tabajara" />
-        <Image className="mx-4" src={Unimed} alt="Unimed" />
+        <Image className="mx-4" src={BB} alt="Banco do Brasil" loading="lazy" />
+        <Image className="mx-4" src={Incardio} alt="Incardio" loading="lazy" />
+        <Image className="mx-4" src={Kairos} alt="Kairos" loading="lazy" />
+        <Image
+          className="mx-4"
+          src={LMarquezzo}
+          alt="LMarquezzo"
+          loading="lazy"
+        />
+        <Image className="mx-4" src={Mendel} alt="Mendel" loading="lazy" />
+        <Image className="mx-4" src={Sicoob} alt="Sicoob" loading="lazy" />
+        <Image className="mx-4" src={SmartFit} alt="SmartFit" loading="lazy" />
+        <Image className="mx-4" src={Subway} alt="Subway" loading="lazy" />
+        <Image className="mx-4" src={Tabajara} alt="Tabajara" loading="lazy" />
+        <Image className="mx-4" src={Unimed} alt="Unimed" loading="lazy" />
       </Marquee>
     </div>
   );

@@ -42,6 +42,7 @@ export const HomeSection = () => {
             className="h-[280px] md:h-[410px] object-cover w-auto -scale-x-100"
             src={HoldingCarpet}
             alt="pessoa segurando um carpet"
+            loading="lazy"
           />
         </div>
       </Reveal>

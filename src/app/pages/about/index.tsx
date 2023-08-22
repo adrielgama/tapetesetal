@@ -17,6 +17,7 @@ export const About: React.FC<Props> = ({ id }) => {
             className="h-[280px] md:w-[410px] lg:h-auto lg:w-[380px] xl:w-[600px] object-cover w-auto -scale-x-100"
             src={HoldingCarpet}
             alt="homem segurando um carpete enrolado no ombro"
+            loading="lazy"
           />
           <Slide triggerOnce direction="right">
             <div className="text-center container flex flex-col items-center justify-center gap-10">
