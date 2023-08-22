@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       'Tapetes e capachos vulcanizados personalizados com a sua marca.',
     url: 'https://www.tapetesetal.com.br/',
-    images: '/webpage_300x200.png',
+    images: '/android-chrome-512x512.png',
     type: 'website',
     locale: 'pt_BR',
   },
