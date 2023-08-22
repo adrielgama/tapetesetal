@@ -17,6 +17,7 @@ export const Result: React.FC<ResultProps> = ({ result }) => {
       <Image
         src={Background}
         alt="Imagem de um capacho preto com borda dourada."
+        loading="lazy"
       />
     </div>
   );

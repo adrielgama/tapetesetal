@@ -17,6 +17,7 @@ export const Products: React.FC<Props> = ({ id }) => {
         className="object-cover -scale-x-100 w-screen"
         src={TapetesBanner}
         alt="banner com várias marcas e tapetes"
+        loading="lazy"
       />
       <Zoom cascade direction="up" triggerOnce>
         <div className="container pt-[40px] lg:pt-[104px]">
@@ -41,6 +42,7 @@ export const Products: React.FC<Props> = ({ id }) => {
                 src={CarpetVinyl}
                 alt="carpete azul em capacho vinílico"
                 className="md:w-[50%] lg:w-[40%] p-6"
+                loading="lazy"
               />
             </div>
           </Slide>
@@ -55,6 +57,7 @@ export const Products: React.FC<Props> = ({ id }) => {
                 src={CarpetVulcan}
                 alt="carpete azul em capacho vinílico"
                 className="md:w-[50%] lg:w-[40%] p-6"
+                loading="lazy"
               />
               <div className="flex flex-col lg:w-2/4 gap-4 container">
                 <h2 className="text-center subtitle">Vantagens</h2>
