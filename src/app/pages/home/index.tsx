@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 
 import { Slide, Reveal } from 'react-awesome-reveal';
 
-import HoldingCarpet from '@/images/resource/holding-carpet.png';
+import HoldingCarpet from '@/images/resource/holding-carpet.webp';
 
 export const HomeSection = () => {
   return (

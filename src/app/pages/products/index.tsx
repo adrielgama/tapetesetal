@@ -6,8 +6,8 @@ import { Props } from '@/types/types';
 import { Zoom, Slide } from 'react-awesome-reveal';
 
 import TapetesBanner from '@/images/products/tapetes.webp';
-import CarpetVinyl from '@/images/products/carpet-pvc.jpg';
-import CarpetVulcan from '@/images/products/carpet-vulcanizado.jpg';
+import CarpetVinyl from '@/images/products/carpet-pvc.webp';
+import CarpetVulcan from '@/images/products/carpet-vulcanizado.webp';
 import { Separator } from '@/components/ui/separator';
 
 export const Products: React.FC<Props> = ({ id }) => {

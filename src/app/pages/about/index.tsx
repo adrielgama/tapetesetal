@@ -6,7 +6,7 @@ import { Props } from '@/types/types';
 
 import { Fade, Reveal, Slide } from 'react-awesome-reveal';
 
-import HoldingCarpet from '@/images/resource/holding-carpet2.png';
+import HoldingCarpet from '@/images/resource/holding-carpet2.webp';
 
 export const About: React.FC<Props> = ({ id }) => {
   return (

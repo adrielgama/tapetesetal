@@ -20,7 +20,6 @@ module.exports = {
         wave: 'url(/images/wave.svg)',
         wave1: 'url(/images/wave1.svg)',
         wave2: 'url(/images/wave2.svg)',
-        tapetes: 'url(/images/tapetes.webp)',
       },
       colors: {
         border: 'hsl(var(--border))',
