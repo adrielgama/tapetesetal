@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 
-import { Props } from '@/types/types';
+import { Props } from '@/types';
 
 import BB from '@/images/bb.png';
 import Incardio from '@/images/incardio.png';
