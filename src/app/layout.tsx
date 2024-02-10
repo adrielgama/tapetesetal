@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
   },
   keywords:
-    'tapetes,tapete personalizado,tapetes personalizados,tapetes bahia,carpete,capacho,personalizado,carpete,higiene,vulvanizado,emborrachado,tapete borracha, loja, tapete de loja',
+    'tapetes,tapete personalizado,tapetes personalizados,tapetes bahia,carpete,capacho,personalizado,carpete,higiene,vulvanizado,emborrachado,tapete borracha, loja, tapete de loja, tapete personalizado feira de santana',
   icons: {
     icon: '/favicon-32x32.png',
     apple: '/apple-touch-icon.png',

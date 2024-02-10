@@ -9,6 +9,7 @@ import { Contact } from './pages/contact';
 import { Dialog } from '@/components/ui/dialog';
 import { lazy, Suspense } from 'react';
 import LoadingSpinner from '@/components/shared/LoadingSpinner';
+import WhatsAppButton from '@/components/shared/whatsAppFloatButton';
 
 const LazyMapa = lazy(() => import('@/components/shared/Map'));
 
@@ -17,6 +18,7 @@ export default function Home() {
     <div>
       <Dialog>
         <Navbar />
+        <WhatsAppButton />
         <main className="flex-col items-center justify-between">
           <HomeSection />
           <About id="about" />
