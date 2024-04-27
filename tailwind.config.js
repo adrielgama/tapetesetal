@@ -17,8 +17,16 @@ module.exports = {
       },
     },
     extend: {
-      colors: {},
-
+      colors: {
+        'tet-orange-100': 'rgb(227, 137, 85)',
+        'tet-orange-300': 'rgb(247, 148, 29)',
+        'tet-orange-400': 'rgb(172, 82, 29)',
+        'tet-orange-500': 'rgb(111, 51, 14)',
+        'tet-orange-600': 'rgb(45, 23, 6)',
+        'tet-orange-900': 'rgb(26, 5, 1)',
+        'tet-gray-100': 'rgb(214, 219, 220)',
+        'tet-gray-400': 'rgb(56, 68, 74)',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
