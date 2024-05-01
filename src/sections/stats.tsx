@@ -2,8 +2,8 @@ export const Stats = () => {
   const yearsOfExperience = new Date().getFullYear() - 1996
 
   const stats = [
-    { title: 'Clientes Satisfeitos', value: '1200+' },
-    { title: 'Tapetes Produzidos', value: '3000+' },
+    { title: 'Clientes Satisfeitos', value: 1200 },
+    { title: 'Tapetes Produzidos', value: 3000 },
     { title: 'Anos de Experiência', value: yearsOfExperience },
   ]
 
@@ -15,6 +15,9 @@ export const Stats = () => {
             <h3 className="text-gray-500">{title}</h3>
             <p className="text-4xl font-bold text-tet-gray-400 lg:text-5xl">
               {value}
+              {title.includes('Clientes') || title.includes('Tapetes')
+                ? '+'
+                : ''}
             </p>
           </div>
         ))}

@@ -18,6 +18,7 @@ export const Showcase = () => {
           Saiba mais
         </a>
       </div>
+      {/* TODO - FAZER UM CAROUSEL DE IMAGENS */}
       <img
         src={CarpetShowcase}
         alt="Vinyl loop mat"
