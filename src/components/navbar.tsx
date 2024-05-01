@@ -17,7 +17,7 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="flex h-20 w-full shrink-0 items-center bg-white px-4 shadow-sm md:px-6">
+    <header className="sticky top-0 flex h-20 w-full shrink-0 items-center bg-white px-4 shadow-sm md:px-6">
       <Sheet>
         <div className="flex w-full items-center justify-between">
           <a className="mr-6 lg:flex" href="#">
