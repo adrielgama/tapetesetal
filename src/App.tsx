@@ -1,8 +1,9 @@
 import { ModalContent } from './components/modalContent'
 import Navbar from './components/navbar'
 import { Dialog } from './components/ui/dialog'
+import WhatsAppButton from './components/whatsappFloat'
 import useStore from './helpers/useStore'
-import { About, Showcase, Stats } from './sections'
+import { About, Clients, Showcase, Stats } from './sections'
 
 function App() {
   const { isModalOpen } = useStore()
@@ -13,7 +14,9 @@ function App() {
         <Showcase />
         <Stats />
         <About />
+        <Clients />
         <ModalContent />
+        <WhatsAppButton />
       </Dialog>
     </>
   )

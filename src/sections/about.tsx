@@ -2,7 +2,7 @@ export const About = () => {
   return (
     <div
       id="about"
-      className="container flex flex-col items-center justify-center gap-8 pt-4"
+      className="container relative flex flex-col items-center justify-center gap-8 py-12"
     >
       <h1 className="text-4xl font-bold">Sobre nós</h1>
       <p className="max-w-4xl text-justify text-gray-600">
