@@ -12,13 +12,13 @@ export const Stats = () => {
       <div className="container grid place-items-center items-center gap-10 md:grid-cols-3 md:gap-0">
         {stats.map(({ title, value }) => (
           <div className="flex flex-col items-center space-y-4" key={title}>
-            <h3 className="text-gray-500">{title}</h3>
             <p className="text-4xl font-bold text-tet-gray-400 lg:text-5xl">
-              {value}
               {title.includes('Clientes') || title.includes('Tapetes')
                 ? '+'
                 : ''}
+              {value}
             </p>
+            <h3 className="text-gray-500">{title}</h3>
           </div>
         ))}
       </div>

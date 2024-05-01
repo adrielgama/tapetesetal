@@ -30,7 +30,9 @@ export const Clients = () => {
       id="clients"
       className="container relative flex flex-col items-center justify-center py-12"
     >
-      <h1 className="pb-4 text-4xl font-bold">Nossos clientes</h1>
+      <h1 className="pb-4 text-4xl font-bold text-orange-950">
+        Nossos clientes
+      </h1>
       <Marquee gradient autoFill speed={20}>
         {clientImages.map(({ src, alt }) => (
           <img

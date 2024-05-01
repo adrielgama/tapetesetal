@@ -1,4 +1,4 @@
-import CarpetShowcase from '@/assets/images/carpet.png'
+import CarpetShowcase from '@/assets/images/carpet.webp'
 
 export const Showcase = () => {
   return (

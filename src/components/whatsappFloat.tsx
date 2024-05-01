@@ -6,7 +6,7 @@ const WhatsAppButton = () => {
       href="https://wa.me/5575991181035"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-2 right-4 z-50 animate-bounce rounded-full bg-[#25d366] p-2 drop-shadow-md transition-all hover:bg-green-500 md:p-3"
+      className="fixed bottom-2 right-16 z-50 animate-bounce rounded-full bg-[#25d366] p-2 drop-shadow-md transition-all hover:bg-green-500 md:p-3"
     >
       <img
         src={WhatsAppIcon}

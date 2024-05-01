@@ -4,7 +4,7 @@ export const About = () => {
       id="about"
       className="container relative flex flex-col items-center justify-center gap-8 py-12"
     >
-      <h1 className="text-4xl font-bold">Sobre nós</h1>
+      <h1 className="text-4xl font-bold text-orange-950">Sobre nós</h1>
       <p className="max-w-4xl text-justify text-gray-600">
         Fundada em 1996, a Tapetes & Tal é uma líder em fabricação de tapetes de
         vinil, emborrachados e vulcanizados. Comprometida com a excelência,
