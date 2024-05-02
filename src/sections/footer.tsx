@@ -2,7 +2,7 @@ import Logo from '@/assets/logo.svg'
 
 interface ContactInfoItemProps {
   title: string
-  value: { name: string; href: string }[]
+  value: { name: string; href: string; target: string }[]
 }
 
 export const Footer = () => {
@@ -15,11 +15,11 @@ export const Footer = () => {
         <ContactInfoItems
           title="Menu"
           value={[
-            { name: 'Início', href: '#' },
-            { name: 'Sobre nós', href: '#' },
-            { name: 'Clientes', href: '#' },
-            { name: 'Produtos', href: '#' },
-            { name: 'Contato', href: '#' },
+            { name: 'Início', href: '#', target: '_self' },
+            { name: 'Sobre nós', href: '#about-us', target: '_self' },
+            { name: 'Clientes', href: '#clients', target: '_self' },
+            { name: 'Produtos', href: '#product', target: '_self' },
+            { name: 'Contato', href: '#contact', target: '_self' },
           ]}
         />
         <ContactInfoItems
@@ -28,10 +28,12 @@ export const Footer = () => {
             {
               name: 'Instagram',
               href: 'https://www.instagram.com/tapetesetal.contato/',
+              target: '_blank',
             },
             {
               name: 'Whatsapp',
               href: 'https://api.whatsapp.com/send?phone=5575991181035&text=Ol%C3%A1%2C%20vim%20do%20seu%20site.',
+              target: '_blank',
             },
           ]}
         />
@@ -100,11 +102,11 @@ const ContactInfoItems: React.FC<ContactInfoItemProps> = ({ title, value }) => {
     <div className="space-y-3 py-4">
       <h1 className="font-bold">{title}</h1>
       <div className="flex flex-col gap-2 text-sm text-gray-500">
-        {value.map(({ name, href }) => (
+        {value.map(({ name, href, target }) => (
           <a
             key={name}
             href={href}
-            target="_blank"
+            target={target}
             className="max-w-fit hover:text-tet-orange-300"
             rel="noreferrer"
           >
