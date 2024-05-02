@@ -48,6 +48,7 @@ export const Product = () => {
             alt="Tapete"
             width={400}
             className="z-10 shadow-lg"
+            loading="lazy"
           />
           <div className="z-10 mx-2 space-y-4 pt-4 text-center lg:pt-0">
             <h1 className="text-3xl font-bold text-tet-orange-400">
@@ -85,6 +86,7 @@ export const Product = () => {
             alt="Tapete"
             width={400}
             className="z-10"
+            loading="lazy"
           />
           <span className="lg:absolute lg:-bottom-8 lg:right-10 lg:h-[400px] lg:w-[400px] lg:rounded-md lg:border-8 lg:border-gray-100" />
           <span className="lg:absolute lg:-right-8 lg:-top-9 lg:h-[400px] lg:w-[400px] lg:rounded-md lg:border-8 lg:border-gray-100" />

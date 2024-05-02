@@ -2,9 +2,9 @@ import CarpetShowcase from '@/assets/images/carpet.webp'
 
 export const Showcase = () => {
   return (
-    <section className="container grid grid-cols-1 items-center gap-8 py-8 md:grid-cols-2">
+    <section className="container grid grid-cols-1 items-center gap-8 py-20 md:grid-cols-2 lg:py-8">
       <div className="grid gap-8">
-        <h1 className="text-7xl font-bold text-tet-orange-900 md:text-6xl">
+        <h1 className="text-5xl font-bold text-tet-orange-900 md:text-7xl">
           Um novo conceito em{' '}
           <span className="text-tet-orange-300">Tapetes</span>
         </h1>
@@ -22,6 +22,7 @@ export const Showcase = () => {
       <img
         src={CarpetShowcase}
         alt="Vinyl loop mat"
+        loading="lazy"
         className="hidden max-h-96 w-full justify-center object-contain md:block"
       />
     </section>

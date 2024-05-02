@@ -76,7 +76,7 @@ const ContactInfoResume = () => {
   return (
     <div className="space-y-2 py-2">
       <div className="space-y-2">
-        <img src={Logo} alt="Logo TAPETES & TAL" width={180} />
+        <img src={Logo} alt="Logo TAPETES & TAL" width={180} loading="lazy" />
       </div>
       <div className="flex flex-col gap-2 text-sm text-gray-500">
         {items.map(({ href, description }) => (

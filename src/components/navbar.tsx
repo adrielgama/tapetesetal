@@ -24,7 +24,7 @@ export default function Navbar() {
       <Sheet>
         <div className="flex w-full items-center justify-between">
           <a className="mr-6 lg:flex" href="#">
-            <img src={LogoTET} alt="logo" width={240} />
+            <img src={LogoTET} alt="logo" width={240} loading="lazy" />
             <span className="sr-only">Tapetes & Tal</span>
           </a>
           <SheetTrigger asChild>
@@ -36,7 +36,7 @@ export default function Navbar() {
         </div>
         <SheetContent side="left" className="bg-white">
           <a className="mr-6" href="#">
-            <img src={LogoTET} alt="logo" width={240} />
+            <img src={LogoTET} alt="logo" width={240} loading="lazy" />
             <span className="sr-only">Tapetes & Tal</span>
           </a>
           <div className="grid gap-2 py-6">

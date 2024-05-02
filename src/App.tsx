@@ -1,3 +1,4 @@
+import CookieConsent from './components/cookieConsent'
 import { ModalContent } from './components/modalContent'
 import Navbar from './components/navbar'
 import { Dialog } from './components/ui/dialog'
@@ -31,6 +32,7 @@ function App() {
         {/* ----- */}
         <ModalContent />
         <WhatsAppButton />
+        <CookieConsent />
       </Dialog>
     </>
   )

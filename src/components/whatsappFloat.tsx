@@ -13,6 +13,7 @@ const WhatsAppButton = () => {
         src={WhatsAppIcon}
         alt="Whatsapp ICON"
         className="h-8 w-8 md:h-10 md:w-10"
+        loading="lazy"
       />
     </a>
   )

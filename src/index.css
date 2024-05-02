@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -22,4 +17,15 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(255, 204, 141);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    src: url(/fonts/Inter-VariableFont_slnt\,wght.ttf);
+  }
 }
