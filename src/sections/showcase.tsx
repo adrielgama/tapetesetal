@@ -12,7 +12,7 @@ export const Showcase = () => {
           Conheça mais sobre a Tapetes & Tal
         </p>
         <a
-          href="#"
+          href="#about-us"
           className="text-sm text-tet-orange-900/80 hover:text-tet-orange-900 hover:underline"
         >
           Saiba mais

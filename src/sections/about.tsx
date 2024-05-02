@@ -1,8 +1,8 @@
 export const About = () => {
   return (
     <div
-      id="about"
-      className="container relative flex flex-col items-center justify-center gap-8 py-12"
+      id="about-us"
+      className="container relative flex flex-col items-center justify-center gap-8 py-12 pt-24"
     >
       <h1 className="text-4xl font-bold text-orange-950">Sobre nós</h1>
       <p className="max-w-4xl text-justify text-gray-600">

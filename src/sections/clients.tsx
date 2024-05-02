@@ -28,11 +28,9 @@ export const Clients = () => {
   return (
     <div
       id="clients"
-      className="container relative flex flex-col items-center justify-center py-12"
+      className="container relative flex flex-col items-center justify-center space-y-8 py-12 pt-24"
     >
-      <h1 className="pb-4 text-4xl font-bold text-orange-950">
-        Nossos clientes
-      </h1>
+      <h1 className="text-4xl font-bold text-orange-950">Nossos clientes</h1>
       <Marquee gradient autoFill speed={20}>
         {clientImages.map(({ src, alt }) => (
           <img

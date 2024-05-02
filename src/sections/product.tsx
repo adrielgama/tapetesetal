@@ -39,7 +39,7 @@ export const Product = () => {
   }, [])
 
   return (
-    <div className="bg-slate-50 py-12">
+    <div className="bg-slate-50 py-12 pt-24" id="product">
       <div className="container mx-auto flex flex-col items-center">
         <h1 className="pb-4 text-4xl font-bold text-orange-950">O Produto</h1>
         <div className="relative flex flex-col items-center justify-center gap-4 pt-8 lg:flex-row lg:gap-12">
@@ -65,7 +65,7 @@ export const Product = () => {
             </p>
           </div>
           <span className="lg:absolute lg:bottom-8 lg:left-10 lg:h-[400px] lg:w-[400px] lg:rounded-md lg:border-8 lg:border-gray-100" />
-          <span className="lg:absolute lg:-left-8 lg:top-2 lg:h-[400px] lg:w-[400px] lg:rounded-md lg:border-8 lg:border-gray-100" />
+          <span className="lg:absolute lg:-left-8 lg:top-20 lg:h-[400px] lg:w-[400px] lg:rounded-md lg:border-8 lg:border-gray-100" />
         </div>
         <div className="relative mt-4 flex flex-col-reverse items-center justify-center gap-4 lg:mt-16 lg:flex-row lg:gap-12">
           <div className="z-10 space-y-4 text-center">
