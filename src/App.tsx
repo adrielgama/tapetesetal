@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 
 import CookieConsent from './components/cookieConsent'
+import ErrorBoundary from './components/errorBooundary'
 import { ModalContent } from './components/modalContent'
 import Navbar from './components/navbar'
 import { Dialog } from './components/ui/dialog'
@@ -22,9 +23,15 @@ function App() {
           <About />
           <Clients />
           <Product />
-          <Suspense fallback={<div>Loading...</div>}>
-            <LazyMap />
-          </Suspense>
+          <ErrorBoundary
+            fallback={
+              <div>Something went wrong and the map could not be loaded.</div>
+            }
+          >
+            <Suspense fallback={<div>Loading...</div>}>
+              <LazyMap />
+            </Suspense>
+          </ErrorBoundary>
         </main>
         <Footer />
         {/* ----- */}
