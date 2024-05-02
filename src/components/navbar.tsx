@@ -10,10 +10,10 @@ import { DialogTrigger } from './ui/dialog'
 export default function Navbar() {
   const { toggleModal } = useStore()
   const navItems = [
-    { title: 'Sobre nós', href: '#' },
-    { title: 'Clientes', href: '#' },
-    { title: 'Produto', href: '#' },
-    { title: 'Contato', href: '#' },
+    { title: 'Sobre nós', href: '#about-us' },
+    { title: 'Clientes', href: '#clients' },
+    { title: 'Produto', href: '#product' },
+    { title: 'Contato', href: '#contact' },
   ]
 
   return (
