@@ -7,6 +7,7 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-16 right-8 z-50 animate-bounce rounded-full bg-[#25d366] p-2 drop-shadow-md transition-all hover:bg-green-500 md:bottom-2 md:p-3"
+      role="button"
     >
       <img
         src={WhatsAppIcon}

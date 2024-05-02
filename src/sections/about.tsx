@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <div
+    <section
       id="about-us"
       className="container relative flex flex-col items-center justify-center gap-8 py-12 pt-24"
     >
@@ -17,6 +17,6 @@ export const About = () => {
         específicas de cada projeto. Na Tapetes & Tal, o nosso objetivo é
         superar expectativas, mantendo a tradição de qualidade que nos define.
       </p>
-    </div>
+    </section>
   )
 }

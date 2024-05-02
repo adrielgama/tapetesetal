@@ -3,7 +3,15 @@ import Navbar from './components/navbar'
 import { Dialog } from './components/ui/dialog'
 import WhatsAppButton from './components/whatsappFloat'
 import useStore from './helpers/useStore'
-import { About, Clients, Contact, Product, Showcase, Stats } from './sections'
+import {
+  About,
+  Clients,
+  ContactMap,
+  Footer,
+  Product,
+  Showcase,
+  Stats,
+} from './sections'
 
 function App() {
   const { isModalOpen } = useStore()
@@ -11,12 +19,15 @@ function App() {
     <>
       <Dialog open={isModalOpen}>
         <Navbar />
-        <Showcase />
-        <Stats />
-        <About />
-        <Clients />
-        <Product />
-        <Contact />
+        <main role="main">
+          <Showcase />
+          <Stats />
+          <About />
+          <Clients />
+          <Product />
+          <ContactMap />
+        </main>
+        <Footer />
         {/* ----- */}
         <ModalContent />
         <WhatsAppButton />

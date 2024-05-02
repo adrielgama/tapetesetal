@@ -8,7 +8,7 @@ export const Stats = () => {
   ]
 
   return (
-    <div className="w-full bg-slate-50 py-12">
+    <section className="w-full bg-slate-50 py-12">
       <div className="container grid place-items-center items-center gap-10 md:grid-cols-3 md:gap-0">
         {stats.map(({ title, value }) => (
           <div className="flex flex-col items-center space-y-4" key={title}>
@@ -18,10 +18,10 @@ export const Stats = () => {
                 : ''}
               {value}
             </p>
-            <h3 className="text-gray-500">{title}</h3>
+            <p className="text-gray-500">{title}</p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }

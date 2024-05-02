@@ -26,7 +26,7 @@ export const Clients = () => {
   ]
 
   return (
-    <div
+    <section
       id="clients"
       className="container relative flex flex-col items-center justify-center space-y-8 py-12 pt-24"
     >
@@ -43,6 +43,6 @@ export const Clients = () => {
           />
         ))}
       </Marquee>
-    </div>
+    </section>
   )
 }

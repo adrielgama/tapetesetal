@@ -17,7 +17,10 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 flex h-20 w-full shrink-0 items-center bg-white px-4 shadow-md md:px-6">
+    <header
+      role="banner"
+      className="sticky top-0 z-50 flex h-20 w-full shrink-0 items-center bg-white px-4 shadow-md md:px-6"
+    >
       <Sheet>
         <div className="flex w-full items-center justify-between">
           <a className="mr-6 lg:flex" href="#">
