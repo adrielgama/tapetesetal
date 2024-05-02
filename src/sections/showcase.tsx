@@ -22,7 +22,7 @@ export const Showcase = () => {
       <img
         src={CarpetShowcase}
         alt="Vinyl loop mat"
-        loading="lazy"
+        // loading="lazy"
         className="hidden max-h-96 w-full justify-center object-contain md:block"
       />
     </section>
