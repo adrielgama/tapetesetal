@@ -1,5 +1,8 @@
-import { Copy } from 'lucide-react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 
+import { formSchema } from '@/helpers/schema'
 import useStore from '@/helpers/useStore'
 
 import { Button } from './ui/button'
@@ -11,11 +14,22 @@ import {
   DialogHeader,
   DialogTitle,
 } from './ui/dialog'
+import { Form, FormField, FormControl, FormMessage, FormItem } from './ui/form'
 import { Input } from './ui/input'
-import { Label } from './ui/label'
+
+type FormData = z.infer<typeof formSchema>
 
 export const ModalContent = () => {
   const { toggleModal } = useStore()
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+  })
+
+  const onSubmit = (data: FormData) => {
+    console.log('Dados do Formulário:', data)
+    toggleModal()
+  }
+
   return (
     <DialogContent
       className="bg-white sm:max-w-md"
@@ -29,28 +43,104 @@ export const ModalContent = () => {
         </DialogDescription>
       </DialogHeader>
       <div className="flex items-center space-x-2">
-        <div className="grid flex-1 gap-2">
-          <Label htmlFor="link" className="sr-only">
-            Link
-          </Label>
-          <Input
-            id="link"
-            defaultValue="https://ui.shadcn.com/docs/installation"
-            readOnly
-          />
-        </div>
-        <Button type="submit" size="sm" className="px-3">
-          <span className="sr-only">Copy</span>
-          <Copy className="h-4 w-4" />
-        </Button>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+            {/* Nome */}
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field, fieldState }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder="Nome" />
+                  </FormControl>
+                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                </FormItem>
+              )}
+            />
+
+            {/* Email */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field, fieldState }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input type="email" {...field} placeholder="E-mail" />
+                  </FormControl>
+                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                </FormItem>
+              )}
+            />
+
+            {/* Telefone */}
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field, fieldState }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder="Telefone" />
+                  </FormControl>
+                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                </FormItem>
+              )}
+            />
+
+            <div className="flex gap-2">
+              {/* Altura */}
+              <FormField
+                control={form.control}
+                name="height"
+                render={({ field, fieldState }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Altura" />
+                    </FormControl>
+                    <FormMessage>{fieldState.error?.message}</FormMessage>
+                  </FormItem>
+                )}
+              />
+
+              {/* Largura */}
+              <FormField
+                control={form.control}
+                name="width"
+                render={({ field, fieldState }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input {...field} placeholder="Largura" />
+                    </FormControl>
+                    <FormMessage>{fieldState.error?.message}</FormMessage>
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            {/* Mensagem */}
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field, fieldState }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input {...field} placeholder="Mensagem" />
+                  </FormControl>
+                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                </FormItem>
+              )}
+            />
+
+            <DialogFooter className="sm:justify-start">
+              <DialogClose asChild>
+                <Button type="submit" variant="secondary" onClick={toggleModal}>
+                  Enviar
+                </Button>
+              </DialogClose>
+            </DialogFooter>
+          </form>
+        </Form>
       </div>
-      <DialogFooter className="sm:justify-start">
-        <DialogClose asChild>
-          <Button type="button" variant="secondary" onClick={toggleModal}>
-            Close
-          </Button>
-        </DialogClose>
-      </DialogFooter>
     </DialogContent>
   )
 }

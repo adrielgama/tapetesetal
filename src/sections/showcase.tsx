@@ -18,11 +18,9 @@ export const Showcase = () => {
           Saiba mais
         </a>
       </div>
-      {/* TODO - FAZER UM CAROUSEL DE IMAGENS */}
       <img
         src={CarpetShowcase}
         alt="Vinyl loop mat"
-        // loading="lazy"
         className="hidden max-h-96 w-full justify-center object-contain md:block"
       />
     </section>
