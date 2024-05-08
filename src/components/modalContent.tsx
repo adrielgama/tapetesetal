@@ -2,7 +2,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
+import { formatCurrency } from '@/helpers/formatCurrency'
 import { formSchema } from '@/helpers/schema'
+import useResultStore from '@/helpers/useResultStore'
 import useStore from '@/helpers/useStore'
 
 import { Button } from './ui/button'
@@ -11,37 +13,39 @@ import {
   DialogContent,
   DialogDescription,
   DialogFooter,
-  DialogHeader,
-  DialogTitle,
 } from './ui/dialog'
 import { Form, FormField, FormControl, FormMessage, FormItem } from './ui/form'
 import { Input } from './ui/input'
+import { Textarea } from './ui/textarea'
 
 type FormData = z.infer<typeof formSchema>
 
 export const ModalContent = () => {
   const { toggleModal } = useStore()
+  const { setResult, setDimensions } = useResultStore()
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
   })
 
   const onSubmit = (data: FormData) => {
-    console.log('Dados do Formulário:', data)
-    toggleModal()
+    const width = parseFloat(data.width)
+    const height = parseFloat(data.height)
+
+    if (!isNaN(width) && !isNaN(height)) {
+      const totalSquareMeters = (width * height) / 10000
+      const totalPrice = formatCurrency(totalSquareMeters * 630)
+      setDimensions({ width, height })
+      setResult(totalPrice)
+    }
+    // form.reset()
   }
 
   return (
     <DialogContent
-      className="bg-white sm:max-w-md"
+      className="w-[85vw] bg-white md:max-w-md"
       onEscapeKeyDown={toggleModal}
       onPointerDownOutside={toggleModal}
     >
-      <DialogHeader>
-        <DialogTitle>Share link</DialogTitle>
-        <DialogDescription>
-          Anyone who has this link will be able to view this.
-        </DialogDescription>
-      </DialogHeader>
       <div className="flex items-center space-x-2">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
@@ -66,7 +70,12 @@ export const ModalContent = () => {
               render={({ field, fieldState }) => (
                 <FormItem>
                   <FormControl>
-                    <Input type="email" {...field} placeholder="E-mail" />
+                    <Input
+                      type="email"
+                      {...field}
+                      placeholder="E-mail"
+                      onChange={field.onChange}
+                    />
                   </FormControl>
                   <FormMessage>{fieldState.error?.message}</FormMessage>
                 </FormItem>
@@ -80,7 +89,12 @@ export const ModalContent = () => {
               render={({ field, fieldState }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder="Telefone" />
+                    <Input
+                      {...field}
+                      placeholder="Telefone"
+                      maxLength={11}
+                      onChange={field.onChange}
+                    />
                   </FormControl>
                   <FormMessage>{fieldState.error?.message}</FormMessage>
                 </FormItem>
@@ -95,7 +109,16 @@ export const ModalContent = () => {
                 render={({ field, fieldState }) => (
                   <FormItem>
                     <FormControl>
-                      <Input {...field} placeholder="Altura" />
+                      <div className="relative">
+                        <Input
+                          {...field}
+                          placeholder="Altura"
+                          onChange={field.onChange}
+                        />
+                        <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-gray-500">
+                          cm
+                        </span>
+                      </div>
                     </FormControl>
                     <FormMessage>{fieldState.error?.message}</FormMessage>
                   </FormItem>
@@ -109,7 +132,16 @@ export const ModalContent = () => {
                 render={({ field, fieldState }) => (
                   <FormItem>
                     <FormControl>
-                      <Input {...field} placeholder="Largura" />
+                      <div className="relative">
+                        <Input
+                          {...field}
+                          placeholder="Largura"
+                          onChange={field.onChange}
+                        />
+                        <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-gray-500">
+                          cm
+                        </span>
+                      </div>
                     </FormControl>
                     <FormMessage>{fieldState.error?.message}</FormMessage>
                   </FormItem>
@@ -124,16 +156,25 @@ export const ModalContent = () => {
               render={({ field, fieldState }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder="Mensagem" />
+                    <Textarea {...field} placeholder="Mensagem" />
                   </FormControl>
                   <FormMessage>{fieldState.error?.message}</FormMessage>
                 </FormItem>
               )}
             />
 
+            <DialogDescription className="text-[11px]">
+              * Ao simular, enviaremos seus dados por e-mail para que nossa
+              equipe possa oferecer uma experiência aprimorada ao finalizar o
+              orçamento.
+            </DialogDescription>
             <DialogFooter className="sm:justify-start">
               <DialogClose asChild>
-                <Button type="submit" variant="secondary" onClick={toggleModal}>
+                <Button
+                  type="submit"
+                  // disabled={!form.formState.isValid}
+                  className="bg-tet-orange-300 text-white"
+                >
                   Enviar
                 </Button>
               </DialogClose>

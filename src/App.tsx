@@ -4,8 +4,11 @@ import CookieConsent from './components/cookieConsent'
 import ErrorBoundary from './components/errorBooundary'
 import { ModalContent } from './components/modalContent'
 import Navbar from './components/navbar'
+import { ResultModal } from './components/resultModal'
 import { Dialog } from './components/ui/dialog'
+import { Toaster } from './components/ui/sonner'
 import WhatsAppButton from './components/whatsappFloat'
+import useResultStore from './helpers/useResultStore'
 import useStore from './helpers/useStore'
 import { About, Clients, Footer, Product, Showcase, Stats } from './sections'
 
@@ -13,8 +16,10 @@ const LazyMap = React.lazy(() => import('@/sections/contact'))
 
 function App() {
   const { isModalOpen } = useStore()
+  const { result } = useResultStore()
   return (
     <>
+      <Toaster />
       <Dialog open={isModalOpen}>
         <Navbar />
         <main role="main">
@@ -35,7 +40,8 @@ function App() {
         </main>
         <Footer />
         {/* ----- */}
-        <ModalContent />
+        {result ? <ResultModal /> : <ModalContent />}
+        {/* <ResultModal /> */}
         <WhatsAppButton />
         <CookieConsent />
       </Dialog>
