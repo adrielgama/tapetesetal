@@ -13,8 +13,8 @@ interface Store {
 const useResultStore = create<Store>((set) => ({
   result: '',
   dimensions: {
-    width: 0,
     height: 0,
+    width: 0,
   },
   setResult: (result) => set({ result }),
   setDimensions: (dimensions) => set({ dimensions }),

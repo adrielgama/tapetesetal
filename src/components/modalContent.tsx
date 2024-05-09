@@ -1,9 +1,13 @@
+import { useState } from 'react'
+
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Loader2 } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { toast } from 'sonner'
 
 import { formatCurrency } from '@/helpers/formatCurrency'
-import { formSchema } from '@/helpers/schema'
+import { formSchema, FormData } from '@/helpers/schema'
 import useResultStore from '@/helpers/useResultStore'
 import useStore from '@/helpers/useStore'
 
@@ -18,26 +22,68 @@ import { Form, FormField, FormControl, FormMessage, FormItem } from './ui/form'
 import { Input } from './ui/input'
 import { Textarea } from './ui/textarea'
 
-type FormData = z.infer<typeof formSchema>
+const { VITE_EMAILJS_USERID: userId } = import.meta.env
+const { VITE_EMAILJS_SERVICEID: serviceId } = import.meta.env
+const { VITE_EMAILJS_TEMPLATEID: templateId } = import.meta.env
 
 export const ModalContent = () => {
   const { toggleModal } = useStore()
   const { setResult, setDimensions } = useResultStore()
+  const [loading, setLoading] = useState(false)
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    mode: 'onChange',
   })
 
-  const onSubmit = (data: FormData) => {
-    const width = parseFloat(data.width)
-    const height = parseFloat(data.height)
+  emailjs.init(userId)
 
-    if (!isNaN(width) && !isNaN(height)) {
-      const totalSquareMeters = (width * height) / 10000
+  const onSubmit = async (data: FormData) => {
+    const height = parseFloat(data.height)
+    const width = parseFloat(data.width)
+
+    if (!isNaN(height) && !isNaN(width)) {
+      const totalSquareMeters = (height * width) / 10000
       const totalPrice = formatCurrency(totalSquareMeters * 630)
-      setDimensions({ width, height })
-      setResult(totalPrice)
+
+      const templateParams = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        height,
+        width,
+        message: data.message ?? 'Nenhuma mensagem informada',
+        result: totalPrice,
+      }
+
+      setLoading(true)
+
+      try {
+        const response = await emailjs.send(
+          serviceId,
+          templateId,
+          templateParams,
+          userId
+        )
+        if (response.status === 200) {
+          toast.success('Tudo certo por aqui!', {
+            description: 'Seu orçamento foi enviado com sucesso!',
+            className: 'bg-green-100 text-green-900',
+          })
+          setDimensions({ height, width })
+          setResult(totalPrice)
+        }
+      } catch (error) {
+        console.error(error)
+        if (error instanceof EmailJSResponseStatus) {
+          toast.error('Ops. Ocorreu um erro ao enviar o formulário!', {
+            description: `Error: ${error.text}`,
+            className: 'bg-red-100 text-red-900',
+          })
+        }
+      } finally {
+        setLoading(false)
+      }
     }
-    // form.reset()
   }
 
   return (
@@ -56,7 +102,12 @@ export const ModalContent = () => {
               render={({ field, fieldState }) => (
                 <FormItem>
                   <FormControl>
-                    <Input {...field} placeholder="Nome" />
+                    <Input
+                      {...field}
+                      placeholder="Nome"
+                      onChange={field.onChange}
+                      value={field.value ?? ''}
+                    />
                   </FormControl>
                   <FormMessage>{fieldState.error?.message}</FormMessage>
                 </FormItem>
@@ -75,6 +126,7 @@ export const ModalContent = () => {
                       {...field}
                       placeholder="E-mail"
                       onChange={field.onChange}
+                      value={field.value ?? ''}
                     />
                   </FormControl>
                   <FormMessage>{fieldState.error?.message}</FormMessage>
@@ -94,6 +146,8 @@ export const ModalContent = () => {
                       placeholder="Telefone"
                       maxLength={11}
                       onChange={field.onChange}
+                      type="number"
+                      value={field.value ?? ''}
                     />
                   </FormControl>
                   <FormMessage>{fieldState.error?.message}</FormMessage>
@@ -114,6 +168,8 @@ export const ModalContent = () => {
                           {...field}
                           placeholder="Altura"
                           onChange={field.onChange}
+                          value={field.value ?? ''}
+                          type="number"
                         />
                         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-gray-500">
                           cm
@@ -137,6 +193,8 @@ export const ModalContent = () => {
                           {...field}
                           placeholder="Largura"
                           onChange={field.onChange}
+                          type="number"
+                          value={field.value ?? ''}
                         />
                         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-gray-500">
                           cm
@@ -156,7 +214,13 @@ export const ModalContent = () => {
               render={({ field, fieldState }) => (
                 <FormItem>
                   <FormControl>
-                    <Textarea {...field} placeholder="Mensagem" />
+                    <Textarea
+                      {...field}
+                      placeholder="Mensagem"
+                      maxLength={500}
+                      onChange={field.onChange}
+                      value={field.value ?? ''}
+                    />
                   </FormControl>
                   <FormMessage>{fieldState.error?.message}</FormMessage>
                 </FormItem>
@@ -172,10 +236,17 @@ export const ModalContent = () => {
               <DialogClose asChild>
                 <Button
                   type="submit"
-                  // disabled={!form.formState.isValid}
+                  disabled={loading}
                   className="bg-tet-orange-300 text-white"
                 >
-                  Enviar
+                  {loading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />{' '}
+                      Enviando...
+                    </>
+                  ) : (
+                    'Enviar'
+                  )}
                 </Button>
               </DialogClose>
             </DialogFooter>
