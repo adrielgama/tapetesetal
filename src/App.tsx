@@ -41,7 +41,6 @@ function App() {
         <Footer />
         {/* ----- */}
         {result ? <ResultModal /> : <ModalContent />}
-        {/* <ResultModal /> */}
         <WhatsAppButton />
         <CookieConsent />
       </Dialog>
