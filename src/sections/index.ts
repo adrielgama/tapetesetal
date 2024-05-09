@@ -1,0 +1,7 @@
+export * from './showcase'
+export * from './stats'
+export * from './about'
+export * from './clients'
+export * from './product'
+export * from './footer'
+export * from './contact'
