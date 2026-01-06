@@ -1,11 +1,18 @@
+import useStore from '@/helpers/useStore'
 import { MenuIcon } from 'lucide-react'
 
-import LogoTET from '@/assets/logo.svg'
 import { Button } from '@/components/ui/button'
-import { SheetTrigger, SheetContent, Sheet } from '@/components/ui/sheet'
-import useStore from '@/helpers/useStore'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 
-import { DialogTrigger } from './ui/dialog'
+import LogoTET from '@/assets/logo.svg'
+
+import { DialogTrigger, VisuallyHidden } from './ui/dialog'
 
 export default function Navbar() {
   const { toggleModal } = useStore()
@@ -22,6 +29,10 @@ export default function Navbar() {
       className="sticky top-0 z-50 flex h-20 w-full shrink-0 items-center bg-white px-4 shadow-md md:px-6"
     >
       <Sheet>
+        <VisuallyHidden>
+          <SheetTitle>Menu</SheetTitle>
+          <SheetDescription>Menu de navegação</SheetDescription>
+        </VisuallyHidden>
         <div className="flex w-full items-center justify-between">
           <a className="mr-6 lg:flex" href="#">
             <img src={LogoTET} alt="logo" width={240} loading="lazy" />

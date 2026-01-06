@@ -1,25 +1,25 @@
 import { useState } from 'react'
-
+import { formatCurrency } from '@/helpers/formatCurrency'
+import { FormData, formSchema } from '@/helpers/schema'
+import useResultStore from '@/helpers/useResultStore'
+import useStore from '@/helpers/useStore'
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2 } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-import { formatCurrency } from '@/helpers/formatCurrency'
-import { formSchema, FormData } from '@/helpers/schema'
-import useResultStore from '@/helpers/useResultStore'
-import useStore from '@/helpers/useStore'
-
 import { Button } from './ui/button'
 import {
-  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
+  DialogTitle,
+  VisuallyHidden,
 } from './ui/dialog'
-import { Form, FormField, FormControl, FormMessage, FormItem } from './ui/form'
+import { Form, FormControl, FormField, FormItem, FormMessage } from './ui/form'
 import { Input } from './ui/input'
+import { InputMask } from './ui/input-mask'
 import { Textarea } from './ui/textarea'
 
 const { VITE_EMAILJS_USERID: userId } = import.meta.env
@@ -30,12 +30,30 @@ export const ModalContent = () => {
   const { toggleModal } = useStore()
   const { setResult, setDimensions } = useResultStore()
   const [loading, setLoading] = useState(false)
+  const [touchedFields, setTouchedFields] = useState<Record<string, boolean>>(
+    {}
+  )
+
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     mode: 'onChange',
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      height: '',
+      width: '',
+      message: '',
+    },
   })
 
   emailjs.init(userId)
+
+  const handleFieldTouch = (fieldName: string) => {
+    setTimeout(() => {
+      setTouchedFields((prev) => ({ ...prev, [fieldName]: true }))
+    }, 500) // Debounce de 500ms
+  }
 
   const onSubmit = async (data: FormData) => {
     const height = parseFloat(data.height)
@@ -43,12 +61,15 @@ export const ModalContent = () => {
 
     if (!isNaN(height) && !isNaN(width)) {
       const totalSquareMeters = (height * width) / 10000
-      const totalPrice = formatCurrency(totalSquareMeters * 630)
+      const totalPrice = formatCurrency(totalSquareMeters * 650)
+
+      // Remove máscara do telefone para envio
+      const cleanPhone = data.phone.replace(/\D/g, '')
 
       const templateParams = {
         name: data.name,
         email: data.email,
-        phone: data.phone,
+        phone: cleanPhone,
         height,
         width,
         message: data.message ?? 'Nenhuma mensagem informada',
@@ -71,6 +92,7 @@ export const ModalContent = () => {
           })
           setDimensions({ height, width })
           setResult(totalPrice)
+          toggleModal()
         }
       } catch (error) {
         console.error(error)
@@ -92,6 +114,12 @@ export const ModalContent = () => {
       onEscapeKeyDown={toggleModal}
       onPointerDownOutside={toggleModal}
     >
+      <VisuallyHidden>
+        <DialogTitle>Formulário de Orçamento</DialogTitle>
+        <DialogDescription>
+          Preencha os campos abaixo para solicitar um orçamento.
+        </DialogDescription>
+      </VisuallyHidden>
       <div className="flex items-center space-x-2">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
@@ -104,12 +132,18 @@ export const ModalContent = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      placeholder="Nome"
-                      onChange={field.onChange}
+                      placeholder="Seu nome"
+                      onChange={(e) => {
+                        field.onChange(e)
+                        handleFieldTouch('name')
+                      }}
                       value={field.value ?? ''}
+                      className="placeholder:text-xs md:placeholder:text-sm"
                     />
                   </FormControl>
-                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                  {touchedFields.name && (
+                    <FormMessage>{fieldState.error?.message}</FormMessage>
+                  )}
                 </FormItem>
               )}
             />
@@ -121,15 +155,21 @@ export const ModalContent = () => {
               render={({ field, fieldState }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
+                    <InputMask
+                      mask="email"
                       type="email"
+                      placeholder="seu@email.com"
                       {...field}
-                      placeholder="E-mail"
-                      onChange={field.onChange}
-                      value={field.value ?? ''}
+                      onChange={(value) => {
+                        field.onChange(value)
+                        handleFieldTouch('email')
+                      }}
+                      className="placeholder:text-xs md:placeholder:text-sm"
                     />
                   </FormControl>
-                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                  {touchedFields.email && (
+                    <FormMessage>{fieldState.error?.message}</FormMessage>
+                  )}
                 </FormItem>
               )}
             />
@@ -141,16 +181,21 @@ export const ModalContent = () => {
               render={({ field, fieldState }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
+                    <InputMask
+                      type="tel"
+                      mask="phone"
+                      placeholder="(99) 99999-9999"
                       {...field}
-                      placeholder="Telefone"
-                      maxLength={11}
-                      onChange={field.onChange}
-                      type="number"
-                      value={field.value ?? ''}
+                      onChange={(value) => {
+                        field.onChange(value)
+                        handleFieldTouch('phone')
+                      }}
+                      className="placeholder:text-xs md:placeholder:text-sm"
                     />
                   </FormControl>
-                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                  {touchedFields.phone && (
+                    <FormMessage>{fieldState.error?.message}</FormMessage>
+                  )}
                 </FormItem>
               )}
             />
@@ -166,17 +211,23 @@ export const ModalContent = () => {
                       <div className="relative">
                         <Input
                           {...field}
-                          placeholder="Altura"
-                          onChange={field.onChange}
+                          placeholder="Altura (ex: 50)"
+                          onChange={(e) => {
+                            field.onChange(e)
+                            handleFieldTouch('height')
+                          }}
                           value={field.value ?? ''}
                           type="number"
+                          className="placeholder:text-xs md:placeholder:text-sm"
                         />
                         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-gray-500">
                           cm
                         </span>
                       </div>
                     </FormControl>
-                    <FormMessage>{fieldState.error?.message}</FormMessage>
+                    {touchedFields.height && (
+                      <FormMessage>{fieldState.error?.message}</FormMessage>
+                    )}
                   </FormItem>
                 )}
               />
@@ -191,17 +242,23 @@ export const ModalContent = () => {
                       <div className="relative">
                         <Input
                           {...field}
-                          placeholder="Largura"
-                          onChange={field.onChange}
+                          placeholder="Largura (ex: 120)"
+                          onChange={(e) => {
+                            field.onChange(e)
+                            handleFieldTouch('width')
+                          }}
                           type="number"
                           value={field.value ?? ''}
+                          className="placeholder:text-xs md:placeholder:text-sm"
                         />
                         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-gray-500">
                           cm
                         </span>
                       </div>
                     </FormControl>
-                    <FormMessage>{fieldState.error?.message}</FormMessage>
+                    {touchedFields.width && (
+                      <FormMessage>{fieldState.error?.message}</FormMessage>
+                    )}
                   </FormItem>
                 )}
               />
@@ -218,11 +275,16 @@ export const ModalContent = () => {
                       {...field}
                       placeholder="Mensagem"
                       maxLength={500}
-                      onChange={field.onChange}
+                      onChange={(e) => {
+                        field.onChange(e)
+                        handleFieldTouch('message')
+                      }}
                       value={field.value ?? ''}
                     />
                   </FormControl>
-                  <FormMessage>{fieldState.error?.message}</FormMessage>
+                  {touchedFields.message && (
+                    <FormMessage>{fieldState.error?.message}</FormMessage>
+                  )}
                 </FormItem>
               )}
             />
@@ -233,22 +295,20 @@ export const ModalContent = () => {
               orçamento.
             </DialogDescription>
             <DialogFooter className="sm:justify-start">
-              <DialogClose asChild>
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  className="bg-tet-orange-300 text-white"
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />{' '}
-                      Enviando...
-                    </>
-                  ) : (
-                    'Enviar'
-                  )}
-                </Button>
-              </DialogClose>
+              <Button
+                type="submit"
+                disabled={!form.formState.isValid || loading}
+                className="bg-tet-orange-300 text-white disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />{' '}
+                    Enviando...
+                  </>
+                ) : (
+                  'Enviar'
+                )}
+              </Button>
             </DialogFooter>
           </form>
         </Form>
