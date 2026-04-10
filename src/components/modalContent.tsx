@@ -61,7 +61,7 @@ export const ModalContent = () => {
 
     if (!isNaN(height) && !isNaN(width)) {
       const totalSquareMeters = (height * width) / 10000
-      const totalPrice = formatCurrency(totalSquareMeters * 650)
+      const totalPrice = formatCurrency(totalSquareMeters * 710)
 
       // Remove máscara do telefone para envio
       const cleanPhone = data.phone.replace(/\D/g, '')
